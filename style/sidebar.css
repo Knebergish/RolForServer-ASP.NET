@@ -11,11 +11,11 @@
 }
 
 #site-header-title {
-    padding: 10px 0;
-    line-height: 50px;
+    padding: 30px 0;
+    line-height: 70px;
 
     font-family: 'Amatic SC', serif;
-    font-size: 50px;
+    font-size: 70px;
     text-align: center;
 }
 
@@ -24,7 +24,8 @@
 }
 
 #site-header-description {
-    margin: 10px 0;
+    margin-top: -20px;
+    margin-bottom: 30px;
     line-height: 20px;
 
     color: #fff;
