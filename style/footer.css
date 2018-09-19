@@ -1,8 +1,19 @@
 #footer {
+    position: absolute;
+    box-sizing: border-box;
     width: 100%;
     height: var(--footer-height);
-    position: absolute;
     bottom: 0;
+    padding: 10px;
+
     background: var(--footer-background);
+
+    color: #555;
+    font-size: 12px;
     text-align: center;
+}
+
+#footer > p {
+    margin: 0;
+    padding-bottom: 5px;
 }
