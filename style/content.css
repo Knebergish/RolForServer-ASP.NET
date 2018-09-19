@@ -1,0 +1,13 @@
+#content {
+    margin: 0 0 0 var(--sidebar-width);
+    padding-bottom: var(--footer-height);
+}
+
+.message {
+    padding: 30px;
+    border: 1px solid red;
+}
+
+#content-items {
+    padding: 20px;
+}

@@ -1,0 +1,8 @@
+#footer {
+    width: 100%;
+    height: var(--footer-height);
+    position: absolute;
+    bottom: 0;
+    background: var(--footer-background);
+    text-align: center;
+}
