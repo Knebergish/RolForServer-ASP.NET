@@ -1,8 +1,8 @@
 :root {
     --toolbar-height: 30px;
     --sidebar-width: 250px;
+    --content-width: 900px;
     --footer-height: 50px;
-    --side-margin: 40px;
 
     --main-background: #ffffff;
     --main-background-image: url("../resources/images/background.jpg");
@@ -36,9 +36,11 @@ body {
 #wrapper {
     min-height: calc(100% - var(--toolbar-height));
     height: auto !important;
+    width: calc(var(--sidebar-width) + var(--content-width));
+    min-width: calc(var(--sidebar-width) + var(--content-width));
     position: relative;
-    margin-left: var(--side-margin);
-    margin-right: var(--side-margin);
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .clear {
@@ -52,19 +54,20 @@ body {
     z-index: -1;
 }
 
-#content_back {
-    left: var(--sidebar-width);
-    right: 0;
-
-    background: var(--content-background);
-}
-
 #sidebar_back {
     left: 0;
     width: var(--sidebar-width);
 
     background: var(--sidebar-background);
     border-right: var(--sidebar-border-width) solid var(--sidebar-border-color);
+}
+
+#content_back {
+    left: var(--sidebar-width);
+    width: var(--content-width);
+    right: 0;
+
+    background: var(--content-background);
 }
 
 .beauty-link a {
