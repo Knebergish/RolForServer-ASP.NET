@@ -1,0 +1,179 @@
+html, body {
+    height: 100%; /* высота HTML и BODY */
+    margin: 0;
+    padding: 0;
+
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    background: url("../resources/images/background.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #000;
+    word-break: break-all;
+}
+
+:root {
+    --toolbar-height: 30px;
+    --sidebar-width: 250px;
+    --footer-height: 30px;
+
+    --toolbar-background: #252a32;
+    --sidebar-background: #413f3d;
+    --content-background: #ffd;
+    --footer-background: #eee;
+
+    --sidebar-border-width: 1px;
+    --sidebar-border-color: rgba(255, 255, 255, 0.1);
+}
+
+#wrapper {
+    min-height: calc(100% - var(--toolbar-height)); /* минимальная высота обертки */
+    height: auto !important; /* высота для всех, кроме IE6 */
+    position: relative; /* относительное позиционирование */
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#toolbar {
+    background: var(--toolbar-background);
+    color: white;
+    height: var(--toolbar-height);
+    padding-left: 10px;
+    font-size: 12pt;
+
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#sidebar {
+    float: left;
+    width: var(--sidebar-width);
+    padding-bottom: var(--footer-height);
+
+    box-sizing: border-box;
+    border-right: var(--sidebar-border-width) solid rgba(0, 0, 0, 0.0);
+}
+
+#site-header {
+    border-bottom: var(--sidebar-border-width) solid var(--sidebar-border-color);
+}
+
+#site-header-title {
+    padding: 10px 0;
+
+    font-family: 'Amatic SC', serif;
+    /*font-weight: 300;*/
+    font-size: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+#site-header-description {
+    margin: 10px 0;
+
+    font-family: Roboto Condensed, serif;
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/**/
+/**/
+/*Меню в сайдбаре*/
+#site-navigation {
+
+}
+
+.menu-item {
+    border-bottom: var(--sidebar-border-width) solid var(--sidebar-border-color);
+    height: 40px;
+    width: 100%;
+
+    display: flex;
+}
+
+.beauty-link a {
+    display: block;
+    color: #fff;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+.beauty-link a:hover {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none
+}
+
+#site-navigation a {
+    padding: 10px 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    text-transform: uppercase;
+    font-size: 12px;
+
+. beauty-link;
+}
+
+#site-navigation a:hover {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none
+}
+
+#content {
+    margin: 0 0 0 var(--sidebar-width);
+    padding-bottom: var(--footer-height);
+}
+
+.clear {
+    clear: both;
+}
+
+.message {
+    padding: 30px;
+    border: 1px solid red;
+}
+
+#footer {
+    width: 100%;
+    height: var(--footer-height);
+    position: absolute;
+    bottom: 0;
+    background: var(--footer-background);
+    text-align: center;
+}
+
+#sidebar_back, #content_back {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+#content_back {
+    background: var(--content-background);
+    left: var(--sidebar-width);
+    right: 0; /*У меня слов нет*/
+}
+
+#sidebar_back {
+    background: var(--sidebar-background);
+    width: var(--sidebar-width);
+    left: 0;
+
+    box-sizing: border-box;
+    border-right: var(--sidebar-border-width) solid var(--sidebar-border-color);
+}
+
+#content-area {
+    padding: 20px;
+}
+
