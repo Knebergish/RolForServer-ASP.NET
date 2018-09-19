@@ -3,7 +3,6 @@
     width: var(--sidebar-width);
     padding-bottom: var(--footer-height);
 
-    box-sizing: border-box;
     border-right: var(--sidebar-border-width) solid rgba(0, 0, 0, 0.0);
 }
 
@@ -13,38 +12,37 @@
 
 #site-header-title {
     padding: 10px 0;
+    line-height: 50px;
 
     font-family: 'Amatic SC', serif;
-    /*font-weight: 300;*/
     font-size: 50px;
-    line-height: 50px;
     text-align: center;
+}
+
+#site-header-title > a {
+    display: block;
 }
 
 #site-header-description {
     margin: 10px 0;
-
-    font-family: Roboto Condensed, serif;
-    color: #fff;
-    font-size: 12px;
     line-height: 20px;
+
+    color: #fff;
+    font-family: Roboto Condensed, serif;
+    font-size: 12px;
     text-align: center;
     text-transform: uppercase;
 }
 
-/**/
-/**/
-/*Меню в сайдбаре*/
 #site-navigation {
 
 }
 
 .menu-item {
-    border-bottom: var(--sidebar-border-width) solid var(--sidebar-border-color);
-    height: 40px;
-    width: 100%;
-
     display: flex;
+    min-height: 40px;
+    width: 100%;
+    border-bottom: var(--sidebar-border-width) solid var(--sidebar-border-color);
 }
 
 #site-navigation a {
@@ -52,13 +50,6 @@
     margin-top: auto;
     margin-bottom: auto;
 
-    text-transform: uppercase;
     font-size: 12px;
-
-. beauty-link;
-}
-
-#site-navigation a:hover {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none
+    text-transform: uppercase;
 }
