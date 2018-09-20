@@ -8,8 +8,12 @@
     padding-bottom: var(--footer-height);
 }
 
-#content-items {
+#content-area {
     padding: 20px;
+}
+
+#content-items {
+    border: 1px solid #eee;
 }
 
 .message {
