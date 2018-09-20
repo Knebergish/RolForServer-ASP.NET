@@ -53,6 +53,21 @@ body {
     padding-bottom: var(--footer-height);
 }
 
+#content {
+    padding: 80px 90px;
+}
+
+#entry-title {
+    margin-top: 0;
+
+    font-size: 48px;
+    font-family: Roboto Slab, serif;
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #555;
+}
+
 #secondary {
     float: left;
     width: var(--sidebar-width);

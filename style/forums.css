@@ -1,0 +1,36 @@
+.forum-preview {
+    display: table;
+    width: 210px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #fbfbfb;
+    border: 1px solid #eee;
+
+    text-align: center;
+}
+
+.forum-preview-image {
+    width: 200px;
+    height: 200px;
+}
+
+.forum-preview > .forum-title {
+    font-size: 25px;
+
+    color: #3699dc;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+.forum-preview > .forum-title:hover, .forum-title:focus {
+    color: #1d70a8;
+}
+
+#forums-list {
+    width: 100%;
+    padding: 0;
+}
+
+#forums-list > tbody > tr > td {
+    padding-bottom: 20px;
+}
