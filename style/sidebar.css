@@ -1,9 +1,5 @@
 #sidebar {
-    float: left;
-    width: var(--sidebar-width);
-    padding-bottom: var(--footer-height);
 
-    border-right: var(--sidebar-border-width) solid rgba(0, 0, 0, 0.0);
 }
 
 #site-header {

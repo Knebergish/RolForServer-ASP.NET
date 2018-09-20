@@ -47,6 +47,20 @@ body {
     clear: both;
 }
 
+#primary {
+    width: var(--content-width);
+    margin: 0 0 0 var(--sidebar-width);
+    padding-bottom: var(--footer-height);
+}
+
+#secondary {
+    float: left;
+    width: var(--sidebar-width);
+    padding-bottom: var(--footer-height);
+
+    border-right: var(--sidebar-border-width) solid rgba(0, 0, 0, 0.0);
+}
+
 #sidebar_back, #content_back {
     height: 100%;
     position: absolute;
