@@ -9,10 +9,26 @@
     color: #555;
 }
 
+#breadcrumb {
+    line-height: 1.625;
+    margin: 0 0 13px;
+
+    color: #555;
+}
+
+.breadcrumb-item {
+    font-size: 12px;
+    font-family: Roboto, serif;
+}
+
 #pagination {
     line-height: 1.625;
     float: right;
     display: inline;
+
+    color: #555;
+    font-size: 12px;
+    font-family: Roboto, serif;
 }
 
 .pagination-item {
@@ -23,25 +39,35 @@
 
 .page-number {
     border: 1px solid #efefef;
+}
 
-    font-size: 12px;
-    font-family: Roboto, serif;
-    color: #3699dc;
-    text-decoration: none !important;
-    outline: none !important;
+.page-number-current {
+    background: #eee;
+    opacity: 0.8;
+    border: 1px solid #ddd;
 }
 
 .page-number:hover {
     background: #f1f1eb;
 }
 
-.beauty-link a {
+.gray-link a {
     color: #fff;
     text-decoration: none !important;
     outline: none !important;
 }
 
-.beauty-link a:hover {
+.gray-link a:hover {
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none
+}
+
+.blue-link {
+    color: #3699dc;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+.blue-link:hover {
+    color: #1d70a8;;
 }
