@@ -38,14 +38,15 @@
 .menu-item {
     display: flex;
     min-height: 40px;
-    width: 100%;
-    border-bottom: var(--sidebar-border-width) solid var(--sidebar-border-color);
 }
 
 #site-navigation a {
     padding: 10px 25px;
     margin-top: auto;
     margin-bottom: auto;
+    width: 100%;
+
+    border-bottom: var(--sidebar-border-width) solid var(--sidebar-border-color);
 
     font-size: 12px;
     text-transform: uppercase;
