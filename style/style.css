@@ -24,7 +24,6 @@
 #pagination {
     line-height: 1.625;
     float: right;
-    display: inline;
 
     color: #555;
     font-size: 12px;
@@ -54,18 +53,15 @@
 .gray-link a {
     color: #fff;
     text-decoration: none !important;
-    outline: none !important;
 }
 
 .gray-link a:hover {
     color: rgba(255, 255, 255, 0.5);
-    text-decoration: none
 }
 
 .blue-link {
     color: #3699dc;
     text-decoration: none !important;
-    outline: none !important;
 }
 
 .blue-link:hover {
