@@ -1,4 +1,4 @@
-.forum-preview {
+.forum {
     display: table;
     width: 210px;
     padding: 10px;
@@ -14,7 +14,7 @@
     height: 200px;
 }
 
-.forum-preview > .forum-title {
+.forum > .forum-title {
     font-size: 25px;
 
     color: #3699dc;
@@ -22,7 +22,7 @@
     outline: none !important;
 }
 
-.forum-preview > .forum-title:hover, .forum-title:focus {
+.forum > .forum-title:hover, .forum-title:focus {
     color: #1d70a8;
 }
 

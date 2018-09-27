@@ -1,0 +1,45 @@
+#forums-list {
+    --forum-preview-image-size: 100px;
+    width: 100%;
+    padding: 0;
+
+    color: #555;
+}
+
+.forum {
+    display: flex;
+    padding: 10px;
+    height: var(--forum-preview-image-size);
+    background-color: #fbfbfb;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.forum-preview-image {
+    float: left;
+    width: var(--forum-preview-image-size);
+    height: var(--forum-preview-image-size);
+    margin-right: 10px;
+}
+
+.forum-about {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.forum-title {
+    font-size: 18px;
+}
+
+.forum-author {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.forum-freshness {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
