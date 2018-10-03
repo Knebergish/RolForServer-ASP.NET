@@ -1,0 +1,102 @@
+@model RolForServer.Models.Messages
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Какой-то форум</title>
+    <link href="~/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/css/toolbar.css" rel="stylesheet" type="text/css">
+    <link href="~/css/sidebar.css" rel="stylesheet" type="text/css">
+    <link href="~/css/forum.css" rel="stylesheet" type="text/css">
+    <link href="~/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="~/css/fonts.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="toolbar">
+    <a href="" class="toolbar-item">Инструменты</a>
+    <a href="" class="toolbar-item">Ещё инструменты</a>
+</div>
+
+<div id="wrapper">
+    <div id="secondary">
+        <div id="sidebar">
+            <div id="site-header">
+                <div id="site-header-title" class="gray-link">
+                    @HtmlHelperLinkExtensions.ActionLink(Html, "RolFor", "Index")
+                </div>
+                <div id="site-header-description">
+                    Лучший игровой форум!
+                </div>
+            </div>
+            <div id="site-navigation" class="gray-link">
+                <div class="menu-item">
+                    @HtmlHelperLinkExtensions.ActionLink(Html, "Форумы", "Forums")
+                </div>
+                <div class="menu-item">
+                    @HtmlHelperLinkExtensions.ActionLink(Html, "Какой-то форум", "Forum")
+                </div>
+                <div class="menu-item">
+                    <a href="">Пункт 3</a>
+                </div>
+                <div class="menu-item">
+                    <a href="">Пункт с очень длинным текстом</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="primary">
+        <div id="content">
+            <h1 id="entry-title">Название форума</h1>
+            <div id="breadcrumb">
+                @HtmlHelperLinkExtensions.ActionLink(Html, "Главная", "Index", new object(),
+                    new {@class = "breadcrumb-item blue-link"})
+                <span class="breadcrumb-item">›</span>
+                <span class="breadcrumb-item">Какой-то форум</span>
+            </div>
+            <div id="messages">
+                @using (HtmlHelperFormExtensions.BeginForm(Html)) {
+                    foreach (var message in ViewBag.Messages.Topic) {
+                        <div class="message">
+                        <div class="message-header">
+                            13.13.2013 в 13:13
+                        </div>
+                        <div class="message-body">
+                            <div class="message-user-info">
+                                <a href="" class="message-user-name blue-link">Юзер с ОЧЕНЬ длинным именем</a>
+                                <img src="~/images/avatar.png"
+                                     alt="avatar-image"
+                                     class="user-avatar">
+                                <details class="user-description">
+                                    <summary>Описание</summary>
+                                    <div class="test">
+                                        Ну тут можно описать что-то, что может пригодиться другим.
+                                    </div>
+                                </details>
+                            </div>
+                            <div class="message-content">
+                                @message.Text
+                            </div>
+                        </div>
+                    </div>
+                    }
+                }
+            </div>
+            <div id="pagination">
+                <a href="" class="pagination-item page-number blue-link">1</a>
+                <span class="pagination-item">…</span>
+                <a href="" class="pagination-item page-number blue-link">13</a>
+                <span class="pagination-item page-number-current">14</span>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar_back"></div>
+    <div id="content_back"></div>
+    <div id="footer">
+        <p>Сайт написан с помощью рук и без мошенничества.</p>
+        <p>Почта администратора сайта: какая_то@поч.та</p>
+    </div>
+</div>
+</body>
+</html>
