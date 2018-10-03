@@ -1,5 +1,5 @@
 * {
-    --message-user-info-width: 115px;
+    --message-user-info-width: 200px;
 }
 
 #messages {
@@ -20,7 +20,6 @@
 
 .message-body {
     overflow: hidden;
-    padding: 10px;
 
     background-color: #fbfbfb;
 }
@@ -28,23 +27,42 @@
 .message-user-info {
     float: left;
     width: var(--message-user-info-width);
+    padding: 10px;
 
     text-align: center;
 }
 
 .message-user-info > .message-user-name {
     display: block;
-    color: #3699dc;
-    text-decoration: none !important;
-    outline: none !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.message-user-info > .message-user-name:hover, .message-user-name:focus {
-    color: #1d70a8;
+.message-user-info > .user-avatar {
+    height: 230px;
+    width: 200px;
+}
+
+.user-description {
+
+}
+
+.user-description > .test {
+    max-height: 0;
+
+    transition: max-height 1s;
+    -webkit-transition: max-height 1s;
+    -moz-transition: max-height 1s;
+    -o-transition: max-height 1s;
+}
+
+.user-description[open] > .test {
+    max-height: 300px;
 }
 
 .message-content {
-    margin-left: calc(var(--message-user-info-width) + 15px);
+    margin-left: calc(var(--message-user-info-width) + 20px);
+    padding: 10px;
 
     font-size: 16px;
     font-family: Roboto, serif;
