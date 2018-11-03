@@ -43,6 +43,10 @@ body {
     margin-left: auto;
 }
 
+#clear {
+    clear: both;
+}
+
 #primary {
     width: var(--content-width);
     margin: 0 0 0 var(--sidebar-width);
