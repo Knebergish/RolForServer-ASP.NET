@@ -9,8 +9,12 @@
     <link href="~/css/style.css" rel="stylesheet" type="text/css">
     <link href="~/css/toolbar.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar.css" rel="stylesheet" type="text/css">
+    <link href="~/css/login-widget.css" rel="stylesheet" type="text/css">
     <link href="~/css/footer.css" rel="stylesheet" type="text/css">
     <link href="~/css/fonts.css" rel="stylesheet" type="text/css">
+
+    <link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/x-icon"/>
+    <link href="/favicon.ico" rel="icon" runat="server" type="image/ico"/>
 </head>
 <body>
 <div id="toolbar">
@@ -28,6 +32,27 @@
                 <div id="site-header-description">
                     Лучший игровой форум!
                 </div>
+            </div>
+            <div id="login">
+                <form method="post">
+                    <fieldset>
+                        <legend>Войти</legend>
+                        <div class="input-wrapper">
+                            <label class="label">Имя пользователя: </label>
+                            <input type="text" value="" class="input">
+                        </div>
+                        <div class="input-wrapper">
+                            <label class="label">Пароль: </label>
+                            <input type="password" value="" class="input">
+                        </div>
+                        <div class="submit-wrapper gray-link">
+                            <div id="register-link">
+                                @HtmlHelperLinkExtensions.ActionLink(Html, "Регистрация", "Index")
+                            </div>
+                            <button type="submit" class="button" id="login-button">Войти</button>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
             <div id="site-navigation" class="gray-link">
                 <div class="menu-item">
