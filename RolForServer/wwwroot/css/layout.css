@@ -10,9 +10,6 @@
     --sidebar-background: #413f3d;
     --content-background: #ffd;
     --footer-background: #eee;
-
-    --sidebar-border-width: 1px;
-    --sidebar-border-color: rgba(255, 255, 255, 0.1);
 }
 
 html, body {
@@ -58,11 +55,9 @@ body {
 }
 
 #secondary {
-    float: left;
     width: var(--sidebar-width);
+    float: left;
     padding-bottom: var(--footer-height);
-
-    border-right: var(--sidebar-border-width) solid rgba(0, 0, 0, 0.0);
 }
 
 #sidebar_back, #content_back {
@@ -73,16 +68,15 @@ body {
 }
 
 #sidebar_back {
-    left: 0;
     width: var(--sidebar-width);
+    left: 0;
 
     background: var(--sidebar-background);
-    border-right: var(--sidebar-border-width) solid var(--sidebar-border-color);
 }
 
 #content_back {
-    left: var(--sidebar-width);
     width: var(--content-width);
+    left: var(--sidebar-width);
     right: 0;
 
     background: var(--content-background);

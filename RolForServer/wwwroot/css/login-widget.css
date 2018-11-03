@@ -2,13 +2,14 @@
     padding: 25px;
     line-height: 23px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
 }
 
 #login fieldset {
-    border: 0 none;
     margin: 0;
     padding: 0;
+
+    border: 0 none;
 }
 
 #login legend {
@@ -24,7 +25,7 @@
 }
 
 #login .label {
-    font-size: 14px;
+    font-size: inherit;
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -34,19 +35,19 @@
     padding: 5px;
     box-sizing: border-box;
 
-    border-radius: 3px;
     border: 1px solid rgb(255, 255, 255);
+    border-radius: 3px;
 
     font-family: inherit;
-    font-size: 14px;
+    font-size: inherit;
     color: rgb(85, 85, 85);
 }
 
 #login .button {
     height: 100%;
 
-    font-size: 14px;
     font-family: inherit;
+    font-size: inherit;
 }
 
 #login #register-link {
@@ -58,6 +59,8 @@
 #login #register-link a {
     margin-top: auto;
     margin-bottom: auto;
+
+    font-size: inherit;
 }
 
 #login #login-button {
