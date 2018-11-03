@@ -59,27 +59,27 @@
                 @using (HtmlHelperFormExtensions.BeginForm(Html)) {
                     foreach (var message in ViewBag.Messages.Topic) {
                         <div class="message">
-                        <div class="message-header">
-                            13.13.2013 в 13:13
-                        </div>
-                        <div class="message-body">
-                            <div class="message-user-info">
-                                <a href="" class="message-user-name blue-link">Юзер с ОЧЕНЬ длинным именем</a>
-                                <img src="~/images/avatar.png"
-                                     alt="avatar-image"
-                                     class="user-avatar">
-                                <details class="user-description">
-                                    <summary>Описание</summary>
-                                    <div class="test">
-                                        Ну тут можно описать что-то, что может пригодиться другим.
-                                    </div>
-                                </details>
+                            <div class="message-header">
+                                13.13.2013 в 13:13
                             </div>
-                            <div class="message-content">
-                                @message.Text
+                            <div class="message-body">
+                                <div class="message-user-info">
+                                    <a href="" class="message-user-name blue-link">Юзер с ОЧЕНЬ длинным именем</a>
+                                    <img src="~/images/avatar.png"
+                                         alt="avatar-image"
+                                         class="user-avatar">
+                                    <details class="user-description">
+                                        <summary>Описание</summary>
+                                        <div class="test">
+                                            Ну тут можно описать что-то, что может пригодиться другим.
+                                        </div>
+                                    </details>
+                                </div>
+                                <div class="message-content">
+                                    @Html.Raw(message.Text)
+                                </div>
                             </div>
                         </div>
-                    </div>
                     }
                 }
             </div>
