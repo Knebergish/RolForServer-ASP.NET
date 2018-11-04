@@ -8,6 +8,8 @@
     <link href="~/css/layout.css" rel="stylesheet" type="text/css">
     <link href="~/css/style.css" rel="stylesheet" type="text/css">
     <link href="~/css/toolbar.css" rel="stylesheet" type="text/css">
+    <link href="~/css/user-info.css" rel="stylesheet" type="text/css">
+    <link href="~/css/menu.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar.css" rel="stylesheet" type="text/css">
     <link href="~/css/forum.css" rel="stylesheet" type="text/css">
     <link href="~/css/footer.css" rel="stylesheet" type="text/css">
@@ -15,36 +17,75 @@
 </head>
 <body>
 <div id="toolbar">
-    <a href="" class="toolbar-item">Инструменты</a>
-    <a href="" class="toolbar-item">Ещё инструменты</a>
+    <div class="toolbar-item toolbar-tool-left popup-parent menu">
+        <div class="cyan-link">Инструменты</div>
+        <div class="popup">
+            <ul>
+                <li>
+                    <a href="" class="cyan-link">Первый пункт меню</a>
+                </li>
+                <li>
+                    <a href="" class="cyan-link">Делай два</a>
+                </li>
+                <li>
+                    <a href="" class="cyan-link">Делай три</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="toolbar-item toolbar-tool-right popup-parent user-info">
+        <a href="" class="cyan-link">
+            Аллар Кнебергиш
+            <img src="~/images/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
+        </a>
+        <div class="popup user-info-popup">
+            <img src="~/images/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
+            <ul>
+                <li>
+                    <a href="" class="cyan-link user-name">Аллар Кнебергиш</a>
+                </li>
+                <li>
+                    <span class="user-role">Администратор</span>
+                </li>
+                <li>
+                    <a href="" class="cyan-link">Выход</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div id="wrapper">
     <div id="secondary">
         <div id="sidebar">
             <div id="site-header">
-                <div id="site-header-title" class="gray-link">
-                    @HtmlHelperLinkExtensions.ActionLink(Html, "RolFor", "Index")
+                <div id="site-header-title">
+                    @HtmlHelperLinkExtensions.ActionLink(Html, "RolFor", "Index", new object(),
+                        new {@class = "gray-link"})
                 </div>
                 <div id="site-header-description">
                     Лучший игровой форум!
                 </div>
             </div>
             <hr>
-            <div class="menu-item gray-link">
-                @HtmlHelperLinkExtensions.ActionLink(Html, "Форумы", "Forums")
+            <div class="menu-item">
+                @HtmlHelperLinkExtensions.ActionLink(Html, "Форумы", "Forums", new object(),
+                    new {@class = "gray-link"})
             </div>
             <hr>
-            <div class="menu-item gray-link">
-                @HtmlHelperLinkExtensions.ActionLink(Html, "Какой-то форум", "Forum")
+            <div class="menu-item">
+                @HtmlHelperLinkExtensions.ActionLink(Html, "Какой-то форум", "Forum", new object(),
+                    new {@class = "gray-link"})
             </div>
             <hr>
-            <div class="menu-item gray-link">
-                <a href="">Пункт 3</a>
+            <div class="menu-item">
+                @HtmlHelperLinkExtensions.ActionLink(Html, "Пункт 3", "Index", new object(),
+                    new {@class = "gray-link"})
             </div>
             <hr>
-            <div class="menu-item gray-link">
-                <a href="">Пункт с очень длинным текстом</a>
+            <div class="menu-item">
+                @HtmlHelperLinkExtensions.ActionLink(Html, "Пункт с очень длинным текстом", "Index", new object(),
+                    new {@class = "gray-link"})
             </div>
             <hr>
         </div>

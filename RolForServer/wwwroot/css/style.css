@@ -50,20 +50,32 @@
     background: #f1f1eb;
 }
 
-.gray-link a {
+.gray-link {
     color: #fff;
     text-decoration: none !important;
+    outline: none !important;
 }
 
-.gray-link a:hover {
+.gray-link:hover {
     color: rgba(255, 255, 255, 0.5);
 }
 
 .blue-link {
     color: #3699dc;
     text-decoration: none !important;
+    outline: none !important;
 }
 
 .blue-link:hover {
     color: #1d70a8;;
+}
+
+.cyan-link {
+    color: #eee;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+.cyan-link:hover {
+    color: #00b9eb;
 }
