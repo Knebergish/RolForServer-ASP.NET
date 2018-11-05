@@ -6,7 +6,7 @@
     color: #555;
 }
 
-.forum {
+#forums-list .forum {
     display: flex;
     padding: 10px;
     height: var(--forum-preview-image-size);
@@ -15,30 +15,30 @@
     margin-bottom: 10px;
 }
 
-.forum-preview-image {
+#forums-list .forum .forum-preview-image {
     float: left;
     width: var(--forum-preview-image-size);
     height: var(--forum-preview-image-size);
     margin-right: 10px;
 }
 
-.forum-about {
+#forums-list .forum .forum-about {
     height: 100%;
     width: 100%;
     position: relative;
 }
 
-.forum-title {
+#forums-list .forum .forum-about .forum-title {
     font-size: 18px;
 }
 
-.forum-author {
+#forums-list .forum .forum-about .forum-author {
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
-.forum-freshness {
+#forums-list .forum .forum-about .forum-freshness {
     position: absolute;
     bottom: 0;
     right: 0;

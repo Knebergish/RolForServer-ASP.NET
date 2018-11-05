@@ -1,3 +1,5 @@
+@using RolForServer.Models
+@using RolForServer.Views.Home
 @model RolForServer.Models.Messages
 
 <!DOCTYPE html>
@@ -36,10 +38,10 @@
     <div class="toolbar-item toolbar-tool-right popup-parent user-info">
         <a href="" class="cyan-link">
             Аллар Кнебергиш
-            <img src="~/images/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
+            <img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
         </a>
         <div class="popup user-info-popup">
-            <img src="~/images/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
+            <img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
             <ul>
                 <li>
                     <a href="" class="cyan-link user-name">Аллар Кнебергиш</a>
@@ -60,8 +62,7 @@
         <div id="sidebar">
             <div id="site-header">
                 <div id="site-header-title">
-                    @HtmlHelperLinkExtensions.ActionLink(Html, "RolFor", "Index", new object(),
-                        new {@class = "gray-link"})
+                    <a href="@Url.Action("Index", "Home")" class="gray-link">RolFor</a>
                 </div>
                 <div id="site-header-description">
                     Лучший игровой форум!
@@ -69,23 +70,19 @@
             </div>
             <hr>
             <div class="menu-item">
-                @HtmlHelperLinkExtensions.ActionLink(Html, "Форумы", "Forums", new object(),
-                    new {@class = "gray-link"})
+                <a href="@Url.Action("Forums", "Home")" class="gray-link">Форумы</a>
             </div>
             <hr>
             <div class="menu-item">
-                @HtmlHelperLinkExtensions.ActionLink(Html, "Какой-то форум", "Forum", new object(),
-                    new {@class = "gray-link"})
+                <a href="@Url.Action("Forum", "Home", new {id = 0})" class="gray-link">Какой-то форум</a>
             </div>
             <hr>
             <div class="menu-item">
-                @HtmlHelperLinkExtensions.ActionLink(Html, "Пункт 3", "Index", new object(),
-                    new {@class = "gray-link"})
+                <a href="" class="gray-link">Пункт 3</a>
             </div>
             <hr>
             <div class="menu-item">
-                @HtmlHelperLinkExtensions.ActionLink(Html, "Пункт с очень длинным текстом", "Index", new object(),
-                    new {@class = "gray-link"})
+                <a href="" class="gray-link">Пункт с очень длинным текстом</a>
             </div>
             <hr>
         </div>
@@ -94,28 +91,33 @@
         <div id="content">
             <h1 id="entry-title">Название форума</h1>
             <div id="breadcrumb">
-                @HtmlHelperLinkExtensions.ActionLink(Html, "Главная", "Index", new object(),
-                    new {@class = "breadcrumb-item blue-link"})
+                <a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
+                    Форумы
+                </a>
                 <span class="breadcrumb-item">›</span>
-                <span class="breadcrumb-item">Какой-то форум</span>
+                <span class="breadcrumb-item">
+                    <a href="@Url.Action("Forum", "Home", new {id = ViewBag.Forum.Id})" class="breadcrumb-item blue-link">
+                        @ViewBag.Forum.Title
+                    </a>
+                </span>
             </div>
             <div id="messages">
                 @using (HtmlHelperFormExtensions.BeginForm(Html)) {
-                    foreach (var message in ViewBag.Messages.Topic) {
+                    foreach (var message in ViewBag.Messages) {
                         <div class="message">
                             <div class="message-header">
-                                13.13.2013 в 13:13
+                                @Html.Raw(message.Date.Date) в @Html.Raw(message.Date.Hour):@Html.Raw(message.Date.Minute)
                             </div>
                             <div class="message-body">
                                 <div class="message-user-info">
-                                    <a href="" class="message-user-name blue-link">Юзер с ОЧЕНЬ длинным именем</a>
-                                    <img src="~/images/avatar.png"
+                                    <a href="" class="message-user-name blue-link">@Html.Raw(Repo.Users[message.UserId].Name)</a>
+                                    <img src="~/images/avatars/@Html.Raw(Repo.Users[message.UserId].AvatarImageName)"
                                          alt="avatar-image"
                                          class="user-avatar">
                                     <details class="user-description">
                                         <summary>Описание</summary>
                                         <div class="test">
-                                            Ну тут можно описать что-то, что может пригодиться другим.
+                                            @Html.Raw(Repo.Users[message.UserId].Description)
                                         </div>
                                     </details>
                                 </div>
