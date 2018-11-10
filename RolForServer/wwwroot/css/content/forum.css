@@ -51,17 +51,24 @@
 
 }
 
-#forum #messages .message .message-body .message-user-info .user-description .test {
-    max-height: 0;
+#forum #messages .message .message-body .message-user-info .user-description .spoiler-button {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
-    transition: max-height 1s;
-    -webkit-transition: max-height 1s;
-    -moz-transition: max-height 1s;
-    -o-transition: max-height 1s;
+    cursor: pointer;
+    text-align: center;
 }
 
-#forum #messages .message .message-body .message-user-info .user-description[open] .test {
-    max-height: 300px;
+#forum #messages .message .message-body .message-user-info .user-description .spoiler-text {
+    height: 0;
+    overflow: hidden;
+
+    -webkit-transition: height 1s;
+    -moz-transition: height 1s;
+    -o-transition: height 1s;
+    transition: height 1s;
 }
 
 #forum #messages .message .message-body .message-content {

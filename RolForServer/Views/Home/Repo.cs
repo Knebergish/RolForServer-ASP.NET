@@ -22,10 +22,10 @@ namespace RolForServer.Views.Home {
 
         public static List<User> Users = new List<User> {
             new User {
-                Name = "Аллар Кнебергиш", Description = "Ставьте точки, господа.", AvatarImageName = "Techpriest.jpg"
+                Name = "Аллар Кнебергиш", Description = "Является действующим техножрецом Адептус Механикус. В свободное время любит славить Омниссию и выпивать освящённое машинное масло.", AvatarImageName = "Techpriest.jpg"
             },
-            new User {Name = "Тея", Description = "321", AvatarImageName = "Teya.jpg"},
-            new User {Name = "Алиум", Description = "321", AvatarImageName = "Alium.jpg"}
+            new User {Name = "Тея", Description = "Целитель днем, в ночи некромант. Постоялец каморки в таверне \"Огонек\", работница библиотеки. ", AvatarImageName = "Teya.jpg"},
+            new User {Name = "Алиум", Description = "Охотник на нежить. Для него добра и зла как такового нет, потому поддерживает свою сторону, истребляя нечисть. ", AvatarImageName = "Alium.jpg"}
         };
 
         public static List<Forum> Forums = new List<Forum> {

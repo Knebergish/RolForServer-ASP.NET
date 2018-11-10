@@ -113,12 +113,14 @@
                                         <img src="~/images/avatars/@Html.Raw(Repo.Users[message.UserId].AvatarImageName)"
                                              alt="avatar-image"
                                              class="user-avatar">
-                                        <details class="user-description">
-                                            <summary>Описание</summary>
-                                            <div class="test">
+                                        <div class="user-description">
+                                            <details class="spoiler-button">
+                                                <summary>Описание</summary>
+                                            </details>
+                                            <div class="spoiler-text">
                                                 @Html.Raw(Repo.Users[message.UserId].Description)
                                             </div>
-                                        </details>
+                                        </div>
                                     </div>
                                     <div class="message-content">
                                         @Html.Raw(message.Text)
@@ -145,5 +147,7 @@
         <p>Почта администратора сайта: какая_то@поч.та</p>
     </div>
 </div>
+
+<script src="~/js/spoiler.js"></script>
 </body>
 </html>
