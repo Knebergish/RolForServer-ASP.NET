@@ -4,6 +4,7 @@ using RolForServer.Views.Home;
 namespace RolForServer.Controllers {
     public class HomeController : Controller {
         public IActionResult Index() {
+            ViewBag.News = Repo.News;
             return View();
         }
 

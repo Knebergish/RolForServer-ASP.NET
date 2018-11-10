@@ -1,3 +1,4 @@
+@using RolForServer.Views.Home
 @model RolForServer.Models.Message
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
     <link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar/login-widget.css" rel="stylesheet" type="text/css">
+    <link href="~/css/content/newsletter.css" rel="stylesheet" type="text/css">
     <link href="~/css/footer.css" rel="stylesheet" type="text/css">
     <link href="~/css/fonts.css" rel="stylesheet" type="text/css">
 
@@ -77,7 +79,27 @@
         </div>
     </div>
     <div id="primary">
-        <div id="content"></div>
+        <div id="content">
+            <div id="newsletter">
+                @using (HtmlHelperFormExtensions.BeginForm(Html)) {
+                    foreach (var news in ViewBag.News) {
+                        <article class="news">
+                            <div class="news-header">
+                                <div class="news-title">
+                                    @news.Title
+                                </div>
+                                <div class="news-meta">
+                                    @news.Date @Repo.Users[news.AuthorId].Name
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                @Html.Raw(news.Text)
+                            </div>
+                        </article>
+                    }
+                }
+            </div>
+        </div>
     </div>
     <div id="sidebar_back"></div>
     <div id="content_back"></div>
