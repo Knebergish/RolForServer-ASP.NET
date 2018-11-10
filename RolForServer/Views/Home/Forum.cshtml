@@ -1,5 +1,4 @@
 @using RolForServer.Views.Home
-@model RolForServer.Models.Messages
 
 <!DOCTYPE html>
 <html>
@@ -88,51 +87,53 @@
     </div>
     <div id="primary">
         <div id="content">
-            <h1 id="entry-title">@ViewBag.Forum.Title</h1>
-            <div id="breadcrumb">
-                <a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
-                    Форумы
-                </a>
-                <span class="breadcrumb-item">›</span>
-                <span class="breadcrumb-item">
-                    <a href="@Url.Action("Forum", "Home", new {id = ViewBag.Forum.Id})" class="breadcrumb-item blue-link">
-                        @ViewBag.Forum.Title
+            <div id="forum">
+                <h1 id="entry-title">@ViewBag.Forum.Title</h1>
+                <div id="breadcrumb">
+                    <a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
+                        Форумы
                     </a>
-                </span>
-            </div>
-            <div id="messages">
-                @using (HtmlHelperFormExtensions.BeginForm(Html)) {
-                    foreach (var message in ViewBag.Messages) {
-                        <div class="message">
-                            <div class="message-header">
-                                @Html.Raw(message.Date.Date) в @Html.Raw(message.Date.Hour):@Html.Raw(message.Date.Minute)
-                            </div>
-                            <div class="message-body">
-                                <div class="message-user-info">
-                                    <a href="" class="message-user-name blue-link">@Html.Raw(Repo.Users[message.UserId].Name)</a>
-                                    <img src="~/images/avatars/@Html.Raw(Repo.Users[message.UserId].AvatarImageName)"
-                                         alt="avatar-image"
-                                         class="user-avatar">
-                                    <details class="user-description">
-                                        <summary>Описание</summary>
-                                        <div class="test">
-                                            @Html.Raw(Repo.Users[message.UserId].Description)
-                                        </div>
-                                    </details>
+                    <span class="breadcrumb-item">›</span>
+                    <span class="breadcrumb-item">
+                        <a href="@Url.Action("Forum", "Home", new {id = ViewBag.Forum.Id})" class="breadcrumb-item blue-link">
+                            @ViewBag.Forum.Title
+                        </a>
+                    </span>
+                </div>
+                <div id="messages">
+                    @using (HtmlHelperFormExtensions.BeginForm(Html)) {
+                        foreach (var message in ViewBag.Messages) {
+                            <div class="message">
+                                <div class="message-header">
+                                    @Html.Raw(message.Date.Date) в @Html.Raw(message.Date.Hour):@Html.Raw(message.Date.Minute)
                                 </div>
-                                <div class="message-content">
-                                    @Html.Raw(message.Text)
+                                <div class="message-body">
+                                    <div class="message-user-info">
+                                        <a href="" class="message-user-name blue-link">@Html.Raw(Repo.Users[message.UserId].Name)</a>
+                                        <img src="~/images/avatars/@Html.Raw(Repo.Users[message.UserId].AvatarImageName)"
+                                             alt="avatar-image"
+                                             class="user-avatar">
+                                        <details class="user-description">
+                                            <summary>Описание</summary>
+                                            <div class="test">
+                                                @Html.Raw(Repo.Users[message.UserId].Description)
+                                            </div>
+                                        </details>
+                                    </div>
+                                    <div class="message-content">
+                                        @Html.Raw(message.Text)
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
-                }
-            </div>
-            <div id="pagination">
-                <a href="" class="pagination-item page-number blue-link">1</a>
-                <span class="pagination-item">…</span>
-                <a href="" class="pagination-item page-number blue-link">13</a>
-                <span class="pagination-item page-number-current">14</span>
+                </div>
+                <div id="pagination">
+                    <a href="" class="pagination-item page-number blue-link">1</a>
+                    <span class="pagination-item">…</span>
+                    <a href="" class="pagination-item page-number blue-link">13</a>
+                    <span class="pagination-item page-number-current">14</span>
+                </div>
             </div>
         </div>
     </div>

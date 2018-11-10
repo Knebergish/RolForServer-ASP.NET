@@ -88,39 +88,41 @@
     </div>
     <div id="primary">
         <div id="content">
-            <h1 id="entry-title">Форумы</h1>
-            <div id="breadcrumb">
-                <a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
-                    Форумы
-                </a>
-                <span class="breadcrumb-item">›</span>
-            </div>
-            <div id="forums-list">
-                @using (HtmlHelperFormExtensions.BeginForm(Html)) {
-                    foreach (var forum in ViewBag.Forums) {
-                        <div class="forum">
-                            <a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
-                                <img src="~/images/forums/@Html.Raw(forum.ImageName)"
-                                     class="forum-preview-image" alt="forum_preview">
-                            </a>
-                            <div class="forum-about">
-                                <a href="@Url.Action("Forum", "Home", new {id = forum.Id})" class="forum-title blue-link">
-                                    @forum.Title
+            <div id="forums">
+                <h1 id="entry-title">Форумы</h1>
+                <div id="breadcrumb">
+                    <a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
+                        Форумы
+                    </a>
+                    <span class="breadcrumb-item">›</span>
+                </div>
+                <div id="forums-list">
+                    @using (HtmlHelperFormExtensions.BeginForm(Html)) {
+                        foreach (var forum in ViewBag.Forums) {
+                            <div class="forum">
+                                <a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
+                                    <img src="~/images/forums/@Html.Raw(forum.ImageName)"
+                                         class="forum-preview-image" alt="forum_preview">
                                 </a>
-                                <div class="forum-author">
-                                    Создатель:<br>
-                                    <a href="" class="blue-link">@Repo.Users[forum.AuthorId].Name</a>
-                                </div>
-                                <div class="forum-freshness">
-                                    Свежесть:<br>
-                                    <a href="" class="blue-link">
-                                        @Repo.Messages.FindAll(message => message.ForumId == forum.Id).ConvertAll(input => input.Date).Max().Date
+                                <div class="forum-about">
+                                    <a href="@Url.Action("Forum", "Home", new {id = forum.Id})" class="forum-title blue-link">
+                                        @forum.Title
                                     </a>
+                                    <div class="forum-author">
+                                        Создатель:<br>
+                                        <a href="" class="blue-link">@Repo.Users[forum.AuthorId].Name</a>
+                                    </div>
+                                    <div class="forum-freshness">
+                                        Свежесть:<br>
+                                        <a href="" class="blue-link">
+                                            @Repo.Messages.FindAll(message => message.ForumId == forum.Id).ConvertAll(input => input.Date).Max().Date
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
-                }
+                </div>
             </div>
         </div>
     </div>

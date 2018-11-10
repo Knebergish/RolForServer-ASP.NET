@@ -2,29 +2,33 @@
     --message-user-info-width: 200px;
 }
 
-#messages {
+#forum {
+    padding: 50px 50px;
+}
+
+#forum #messages {
     border: 1px solid #eee;
     margin-bottom: 15px;
 }
 
-.message {
+#forum #messages .message {
     border-top: 1px solid #ddd;
 }
 
-.message-header {
+#forum #messages .message .message-header {
     line-height: 30px;
     padding-left: 10px;
 
     background-color: #f4f4f4;
 }
 
-.message-body {
+#forum #messages .message .message-body {
     overflow: hidden;
 
     background-color: #fbfbfb;
 }
 
-.message-user-info {
+#forum #messages .message .message-body .message-user-info {
     float: left;
     width: var(--message-user-info-width);
     padding: 10px;
@@ -32,22 +36,22 @@
     text-align: center;
 }
 
-.message-user-info > .message-user-name {
+#forum #messages .message .message-body .message-user-info .message-user-name {
     display: block;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.message-user-info > .user-avatar {
+#forum #messages .message .message-body .message-user-info .user-avatar {
     height: 200px;
     width: 200px;
 }
 
-.user-description {
+#forum #messages .message .message-body .message-user-info .user-description {
 
 }
 
-.user-description > .test {
+#forum #messages .message .message-body .message-user-info .user-description .test {
     max-height: 0;
 
     transition: max-height 1s;
@@ -56,11 +60,11 @@
     -o-transition: max-height 1s;
 }
 
-.user-description[open] > .test {
+#forum #messages .message .message-body .message-user-info .user-description[open] .test {
     max-height: 300px;
 }
 
-.message-content {
+#forum #messages .message .message-body .message-content {
     margin-left: calc(var(--message-user-info-width) + 20px);
     padding: 10px;
 
