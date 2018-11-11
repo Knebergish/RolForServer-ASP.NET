@@ -44,18 +44,18 @@
                         <legend>Войти</legend>
                         <div class="input-wrapper">
                             <label class="label">Имя пользователя: </label>
-                            <input type="text" value="" class="input">
+                            <input type="text" id="login-input" value="" class="input">
                         </div>
                         <div class="input-wrapper">
                             <label class="label">Пароль: </label>
-                            <input type="password" value="" class="input">
+                            <input type="password" id="password-input" value="" class="input">
                         </div>
                         <div class="submit-wrapper">
                             <div id="register-link">
                                 @HtmlHelperLinkExtensions.ActionLink(Html, "Регистрация", "Index", new object(),
                                     new {@class = "gray-link"})
                             </div>
-                            <button type="submit" class="button" id="login-button">Войти</button>
+                            <button type="button" class="button" id="login-button">Войти</button>
                         </div>
                     </fieldset>
                 </form>
@@ -112,5 +112,6 @@
 </div>
 <a id="to-top-button" title="Наверх">↑</a>
 <script src="~/js/toTopButton.js"></script>
+<script src="~/js/login.js"></script>
 </body>
 </html>
