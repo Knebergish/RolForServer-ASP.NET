@@ -16,12 +16,22 @@
     color: #555;
 }
 
-.breadcrumb-item {
+#breadcrumb .breadcrumb-item {
     font-size: 12px;
     font-family: Roboto, serif;
 }
 
 #pagination {
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#pagination-end {
+    clear: left;
+}
+
+#pagination #pagination-items {
     line-height: 1.625;
     float: right;
 
@@ -30,24 +40,24 @@
     font-family: Roboto, serif;
 }
 
-.pagination-item {
+#pagination #pagination-items .pagination-item {
     float: left;
     padding: 0 5px;
     margin-left: 5px;
 }
 
-.page-number {
+#pagination #pagination-items .page-number {
     border: 1px solid #efefef;
 }
 
-.page-number-current {
+#pagination #pagination-items .page-number:hover {
+    background: #f1f1eb;
+}
+
+#pagination #pagination-items .page-number-current {
     background: #eee;
     opacity: 0.8;
     border: 1px solid #ddd;
-}
-
-.page-number:hover {
-    background: #f1f1eb;
 }
 
 .gray-link {
