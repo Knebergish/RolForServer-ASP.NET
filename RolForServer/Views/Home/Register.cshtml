@@ -1,28 +1,24 @@
-@using RolForServer.Views.Home
 @model RolForServer.Models.Message
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Главная</title>
+    <title>Регистрация</title>
     <link href="~/css/layout.css" rel="stylesheet" type="text/css">
     <link href="~/css/style.css" rel="stylesheet" type="text/css">
     <link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar/login-widget.css" rel="stylesheet" type="text/css">
-    <link href="~/css/content/newsletter.css" rel="stylesheet" type="text/css">
+    <link href="~/css/content/register.css" rel="stylesheet" type="text/css">
     <link href="~/css/footer.css" rel="stylesheet" type="text/css">
     <link href="~/css/fonts.css" rel="stylesheet" type="text/css">
     <link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
-
-    <link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/x-icon"/>
-    <link href="/favicon.ico" rel="icon" runat="server" type="image/ico"/>
 </head>
 <body>
 <div id="toolbar">
     <div class="toolbar-item toolbar-tool-right popup-parent user-info">
-        <a href="@Url.Action("Register", "Home")" class="cyan-link">Регистрация</a>
+        <a href="" class="cyan-link">Регистрация</a>
     </div>
 </div>
 
@@ -80,24 +76,28 @@
     </div>
     <div id="primary">
         <div id="content">
-            <div id="newsletter">
-                @using (HtmlHelperFormExtensions.BeginForm(Html)) {
-                    foreach (var news in ViewBag.News) {
-                        <article class="news">
-                            <div class="news-header">
-                                <div class="news-title">
-                                    @news.Title
-                                </div>
-                                <div class="news-meta">
-                                    @news.Date @Repo.Users[news.AuthorId].Name
-                                </div>
-                            </div>
-                            <div class="news-content">
-                                @Html.Raw(news.Text)
-                            </div>
-                        </article>
-                    }
-                }
+            <div id="register">
+                <h1 id="entry-title">Регистрация</h1>
+                <form id="register-form" method="post">
+                    <fieldset>
+                        <legend>Зарегистрироваться</legend>
+                        <div class="input-wrapper">
+                            <label class="label">Имя пользователя: </label>
+                            <input type="text" id="register-username-input" class="input" value="">
+                        </div>
+                        <div class="input-wrapper">
+                            <label class="label">Пароль: </label>
+                            <input type="password" id="register-password-input" class="input" value="">
+                        </div>
+                        <div class="input-wrapper">
+                            <label class="label">Подтверждение пароля: </label>
+                            <input type="password" id="register-repeat-password-input" class="input" value="">
+                        </div>
+                        <div class="submit-wrapper">
+                            <button type="button" id="register-submit-button">Зарегистрироваться</button>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </div>
@@ -112,5 +112,6 @@
 <a id="to-top-button" title="Наверх">↑</a>
 <script src="~/js/toTopButton.js"></script>
 <script src="~/js/login.js"></script>
+<script src="~/js/register.js"></script>
 </body>
 </html>

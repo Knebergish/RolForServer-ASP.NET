@@ -18,5 +18,9 @@ namespace RolForServer.Controllers {
             ViewBag.Messages = Repo.Messages.FindAll(message => message.ForumId == id);
             return View();
         }
+
+        public IActionResult Register() {
+            return View();
+        }
     }
 }
