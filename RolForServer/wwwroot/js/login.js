@@ -1,14 +1,13 @@
 (function () {
-    const loginForm = document.getElementById('login');
-    const login = document.getElementById('login-input');
-    const password = document.getElementById('password-input');
-    const button = document.getElementById('login-button');
+    const loginForm = document.getElementById('login-form');
+    const login = document.getElementById('login-username-input');
+    const password = document.getElementById('login-password-input');
+    const button = document.getElementById('login-submit-button');
     button.onclick = validate;
 
     const invalidCredentialsLabel = document.createElement("Label");
-    invalidCredentialsLabel.id = "invalid-credentials-label";
+    invalidCredentialsLabel.id = "invalid-credentials-error-message";
     invalidCredentialsLabel.innerHTML = "Неверный логин или пароль<br>";
-    invalidCredentialsLabel.style.color = 'Red';
     invalidCredentialsLabel.hidden = true;
     loginForm.appendChild(invalidCredentialsLabel);
 
@@ -21,7 +20,7 @@
         else {
             invalidCredentialsLabel.hidden = false;
             errorCount++;
-            setTimeout(hideInvalidCredentialsLabel, 1000);
+            setTimeout(hideInvalidCredentialsLabel, 3000);
         }
         event.preventDefault();
     }

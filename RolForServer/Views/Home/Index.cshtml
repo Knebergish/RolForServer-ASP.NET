@@ -39,23 +39,22 @@
             </div>
             <hr>
             <div id="login">
-                <form method="post">
+                <form id="login-form"method="post">
                     <fieldset>
                         <legend>Войти</legend>
                         <div class="input-wrapper">
                             <label class="label">Имя пользователя: </label>
-                            <input type="text" id="login-input" value="" class="input">
+                            <input type="text" id="login-username-input" value="" class="input">
                         </div>
                         <div class="input-wrapper">
                             <label class="label">Пароль: </label>
-                            <input type="password" id="password-input" value="" class="input">
+                            <input type="password" id="login-password-input" value="" class="input">
                         </div>
                         <div class="submit-wrapper">
-                            <div id="register-link">
-                                @HtmlHelperLinkExtensions.ActionLink(Html, "Регистрация", "Index", new object(),
-                                    new {@class = "gray-link"})
+                            <div id="login-register-link">
+                                <a href="@Url.Action("Register", "Home")" class="gray-link">Регистрация</a>
                             </div>
-                            <button type="button" class="button" id="login-button">Войти</button>
+                            <button type="button" id="login-submit-button">Войти</button>
                         </div>
                     </fieldset>
                 </form>

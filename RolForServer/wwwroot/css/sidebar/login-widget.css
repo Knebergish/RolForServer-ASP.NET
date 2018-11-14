@@ -5,31 +5,31 @@
     font-size: 14px;
 }
 
-#login fieldset {
+#login #login-form fieldset {
     margin: 0;
     padding: 0;
 
     border: 0 none;
 }
 
-#login legend {
+#login #login-form fieldset legend {
     display: none;
 }
 
-#login .input-wrapper {
+#login #login-form fieldset .input-wrapper {
     margin-bottom: 10px;
 }
 
-#login .submit-wrapper {
+#login #login-form fieldset .submit-wrapper {
     height: 30px;
 }
 
-#login .label {
+#login #login-form fieldset .input-wrapper .label {
     font-size: inherit;
     color: rgba(255, 255, 255, 0.5);
 }
 
-#login .input {
+#login #login-form fieldset .input-wrapper .input {
     width: 100%;
     height: 40px;
     padding: 5px;
@@ -43,26 +43,27 @@
     color: rgb(85, 85, 85);
 }
 
-#login .button {
-    height: 100%;
-
-    font-family: inherit;
-    font-size: inherit;
-}
-
-#login #register-link {
+#login #login-form fieldset .submit-wrapper #login-register-link {
     height: 100%;
     display: flex;
     float: left;
 }
 
-#login #register-link a {
+#login #login-form fieldset .submit-wrapper #login-register-link a {
     margin-top: auto;
     margin-bottom: auto;
 
     font-size: inherit;
 }
 
-#login #login-button {
+#login #login-form fieldset .submit-wrapper #login-submit-button {
     float: right;
+    height: 100%;
+
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#invalid-credentials-error-message {
+    color: red;
 }
