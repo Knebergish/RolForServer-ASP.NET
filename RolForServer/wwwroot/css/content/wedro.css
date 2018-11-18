@@ -1,0 +1,123 @@
+#answer-area {
+    padding: 15px;
+
+    border: 1px solid #eee;
+
+    background-color: #fbfbfb;
+}
+
+#answer-area #answer-area-title {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+#answer-area #submit-wrapper {
+    margin-top: 10px;
+    box-sizing: border-box;
+    height: 30px;
+}
+
+#answer-area #submit-button {
+    height: 100%;
+    float: right;
+}
+
+#wedro {
+
+}
+
+#wedro #tabs-switcher {
+    float: right;
+    display: flex;
+    line-height: 1.625;
+
+    cursor: pointer;
+}
+
+#wedro #tabs-switcher .selected-tab-indicator {
+    width: 60px;
+    /*padding: 0;*/
+    margin: 0;
+
+    border: 1px solid gray;
+    text-align: center;
+    padding: 0 5px;
+
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+#wedro #tabs-switcher .selected {
+    background: #e3e3dd;
+}
+
+#wedro #functions-wrapper {
+    float: left;
+    display: flex;
+    line-height: 1.625;
+}
+
+#wedro #functions-wrapper .function-button {
+    width: 30px;
+    border: 1px solid gray;
+    cursor: pointer;
+
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    
+
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+#wedro #functions-wrapper .function-button:hover {
+    background: #cdcdc7;
+}
+
+#wedro #functions-wrapper #bold-function-button {
+    font-weight: bold;
+}
+
+#wedro #functions-wrapper #italic-function-button {
+    font-style: italic;
+}
+
+#wedro #functions-wrapper #underline-function-button {
+    text-decoration: underline;
+}
+
+#wedro .clear {
+    clear: both;
+}
+
+#wedro #tabs-wrapper {
+    margin-top: 5px;
+}
+
+#wedro #tabs-wrapper .tab {
+    height: 200px;
+    margin: 0;
+    padding: 10px;
+
+    word-wrap: break-word;
+    background: white;
+    font-family: Roboto, serif;
+
+    resize: vertical;
+    overflow: auto;
+}
+
+#wedro #tabs-wrapper #visual-tab {
+    border: 1px solid #3696ba;
+}
+
+#wedro #tabs-wrapper #html-tab {
+    border: 1px solid #ff6a5e;
+}
