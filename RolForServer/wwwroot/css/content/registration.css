@@ -1,0 +1,89 @@
+#registration {
+    padding: 50px 50px;
+    line-height: 23px;
+
+    font-size: 14px;
+    color: #555;
+}
+
+#registration #registration-form {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+#registration #registration-form fieldset {
+    margin: 0 0 20px;
+    padding: 0;
+
+    border: 0 none;
+}
+
+#registration #registration-form fieldset legend {
+    display: none;
+}
+
+#registration #registration-form fieldset .input-wrapper {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#registration #registration-form fieldset .input-wrapper .label {
+    font-size: inherit;
+}
+
+#registration #registration-form fieldset .input-wrapper .input-and-hint {
+    display: flex;
+    position: relative;
+}
+
+#registration #registration-form fieldset .input-wrapper .input {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+
+    border: 1px solid black;
+    border-radius: 3px;
+
+    color: rgb(85, 85, 85);
+}
+
+#registration #registration-form fieldset .input-wrapper .hint-wrapper {
+    position: absolute;
+    display: flex;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+#registration #registration-form fieldset .input-wrapper .hint-wrapper .hint {
+    padding: 5px 15px;
+    margin: auto 0 auto 10px;
+
+    background: var(--toolbar-background);
+    border-radius: 100%;
+
+    font-size: 18px;
+    color: white;
+    line-height: 23px;
+}
+
+#registration #registration-form fieldset .submit-wrapper {
+    height: 30px;
+}
+
+#registration #registration-form fieldset .submit-wrapper #registration-submit-button {
+    float: right;
+    height: 100%;
+    margin-top: 10px;
+
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#registration #registration-form #registration-error-message {
+    width: 100%;
+
+    color: red;
+}

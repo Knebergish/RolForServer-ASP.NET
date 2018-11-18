@@ -7,10 +7,11 @@
     <title>Регистрация</title>
     <link href="~/css/layout.css" rel="stylesheet" type="text/css">
     <link href="~/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/css/tooltip.css" rel="stylesheet" type="text/css">
     <link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
     <link href="~/css/sidebar/login-widget.css" rel="stylesheet" type="text/css">
-    <link href="~/css/content/register.css" rel="stylesheet" type="text/css">
+    <link href="~/css/content/registration.css" rel="stylesheet" type="text/css">
     <link href="~/css/footer.css" rel="stylesheet" type="text/css">
     <link href="~/css/fonts.css" rel="stylesheet" type="text/css">
     <link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
@@ -76,25 +77,63 @@
     </div>
     <div id="primary">
         <div id="content">
-            <div id="register">
+            <div id="registration">
                 <h1 id="entry-title">Регистрация</h1>
-                <form id="register-form" method="post">
+                <form id="registration-form" method="post">
                     <fieldset>
                         <legend>Зарегистрироваться</legend>
                         <div class="input-wrapper">
-                            <label class="label">Имя пользователя: </label>
-                            <input type="text" id="register-username-input" class="input" value="">
+                            <label class="label">Логин: </label>
+                            <div class="input-and-hint">
+                                <input type="text" id="registration-login-input" class="input" value="">
+                                <div class="hint-wrapper">
+                                    <span class="hint tooltip" tooltip-content="Буквы английского алфавита и цифры. Должен начинаться с буквы. Длина от 2 до 16 символов.">
+                                        i
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <label class="label">Имя, отображаемое на сайте: </label>
+                            <div class="input-and-hint">
+                                <input type="text" id="registration-username-input" class="input" value="">
+                                <div class="hint-wrapper">
+                                    <span class="hint tooltip" tooltip-content="Любые символы. Длина от 2 до 20 символов. Может быть изменено позже.">
+                                        i
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                         <div class="input-wrapper">
                             <label class="label">Пароль: </label>
-                            <input type="password" id="register-password-input" class="input" value="">
+                            <div class="input-and-hint">
+                                <input type="password" id="registration-password-input" class="input" value="">
+                                <div class="hint-wrapper">
+                                    <span class="hint tooltip" tooltip-content="Буквы английского алфавита, цифры, знаки препинания, специальные символы. Длина не менее 5 символов.">
+                                        i
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                         <div class="input-wrapper">
                             <label class="label">Подтверждение пароля: </label>
-                            <input type="password" id="register-repeat-password-input" class="input" value="">
+                            <div class="input-and-hint">
+                                <input type="password" id="registration-repeat-password-input" class="input" value="">
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <label class="label">Почта: </label>
+                            <div class="input-and-hint">
+                                <input type="text" id="registration-email-input" class="input" value="">
+                                <div class="hint-wrapper">
+                                    <span class="hint tooltip" tooltip-content="Должна быть действующей (будет использоваться для отправки вам рекламных сообщений и предложений быстро разбогатеть).">
+                                        i
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                         <div class="submit-wrapper">
-                            <button type="button" id="register-submit-button">Зарегистрироваться</button>
+                            <button type="button" id="registration-submit-button">Зарегистрироваться</button>
                         </div>
                     </fieldset>
                 </form>
@@ -112,6 +151,6 @@
 <a id="to-top-button" title="Наверх">↑</a>
 <script src="~/js/toTopButton.js"></script>
 <script src="~/js/login.js"></script>
-<script src="~/js/register.js"></script>
+<script src="~/js/registration.js"></script>
 </body>
 </html>
