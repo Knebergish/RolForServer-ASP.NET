@@ -1,14 +1,14 @@
 #toolbar .menu .popup ul {
-    list-style: none;
-    white-space: nowrap;
-    margin: 0;
-    padding: 0;
+	list-style: none;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
 }
 
 #toolbar .menu .popup ul li {
-    display: flex;
+	display: flex;
 }
 
 #toolbar .menu .popup ul li a {
-    width: 100%;
+	width: 100%;
 }

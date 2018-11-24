@@ -1,91 +1,91 @@
 #entry-title {
-    margin-top: 0;
+	margin-top: 0;
 
-    font-size: 48px;
-    font-family: Roboto Slab, serif;
-    text-align: center;
-    font-weight: 300;
-    line-height: 1.2;
-    color: #555;
+	font-size: 48px;
+	font-family: Roboto Slab, serif;
+	text-align: center;
+	font-weight: 300;
+	line-height: 1.2;
+	color: #555555;
 }
 
 #breadcrumb {
-    line-height: 1.625;
-    margin: 0 0 13px;
+	line-height: 1.625;
+	margin: 0 0 13px;
 
-    color: #555;
+	color: #555555;
 }
 
 #breadcrumb .breadcrumb-item {
-    font-size: 12px;
-    font-family: Roboto, serif;
+	font-size: 12px;
+	font-family: Roboto, serif;
 }
 
 #pagination {
-    float: left;
-    margin-bottom: 15px;
-    width: 100%;
+	float: left;
+	margin-bottom: 15px;
+	width: 100%;
 }
 
 #pagination-end {
-    clear: left;
+	clear: left;
 }
 
 #pagination #pagination-items {
-    line-height: 1.625;
-    float: right;
+	line-height: 1.625;
+	float: right;
 
-    color: #555;
-    font-size: 12px;
-    font-family: Roboto, serif;
+	color: #555555;
+	font-size: 12px;
+	font-family: Roboto, serif;
 }
 
 #pagination #pagination-items .pagination-item {
-    float: left;
-    padding: 0 5px;
-    margin-left: 5px;
+	float: left;
+	padding: 0 5px;
+	margin-left: 5px;
 }
 
 #pagination #pagination-items .page-number {
-    border: 1px solid #efefef;
+	border: 1px solid #efefef;
 }
 
 #pagination #pagination-items .page-number:hover {
-    background: #f1f1eb;
+	background: #f1f1eb;
 }
 
 #pagination #pagination-items .page-number-current {
-    background: #eee;
-    opacity: 0.8;
-    border: 1px solid #ddd;
+	background: #eeeeee;
+	opacity: 0.8;
+	border: 1px solid #dddddd;
 }
 
 .gray-link {
-    color: #fff;
-    text-decoration: none !important;
-    outline: none !important;
+	color: #ffffff;
+	text-decoration: none !important;
+	outline: none !important;
 }
 
 .gray-link:hover {
-    color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.5);
 }
 
 .blue-link {
-    color: #3699dc;
-    text-decoration: none !important;
-    outline: none !important;
+	color: #3699dc;
+	text-decoration: none !important;
+	outline: none !important;
 }
 
 .blue-link:hover {
-    color: #1d70a8;
+	color: #1d70a8;
 }
 
 .cyan-link {
-    color: #eee;
-    text-decoration: none !important;
-    outline: none !important;
+	color: #eeeeee;
+	text-decoration: none !important;
+	outline: none !important;
 }
 
 .cyan-link:hover {
-    color: #00b9eb;
+	color: #00b9eb;
 }

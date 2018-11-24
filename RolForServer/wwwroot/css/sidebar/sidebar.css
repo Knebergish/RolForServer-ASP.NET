@@ -1,55 +1,53 @@
 #sidebar {
-
 }
 
 #sidebar hr {
-    height: 1px;
-    margin: 0;
+	height: 1px;
+	margin: 0;
 
-    border-width: 0;
-    background-color: rgba(255, 255, 255, 0.1);
+	border-width: 0;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 #sidebar #site-header {
-
 }
 
 #sidebar #site-header-title {
-    padding: 30px 0;
-    line-height: 70px;
+	padding: 30px 0;
+	line-height: 70px;
 
-    font-family: 'Amatic SC', serif;
-    font-size: 70px;
-    text-align: center;
+	font-family: 'Amatic SC', serif;
+	font-size: 70px;
+	text-align: center;
 }
 
 #sidebar #site-header-title > a {
-    display: block;
+	display: block;
 }
 
 #sidebar #site-header-description {
-    margin-top: -20px;
-    margin-bottom: 30px;
-    line-height: 20px;
+	margin-top: -20px;
+	margin-bottom: 30px;
+	line-height: 20px;
 
-    font-family: Roboto Condensed, serif;
-    font-size: 12px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
+	font-family: Roboto Condensed, serif;
+	font-size: 12px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
 }
 
 #sidebar .menu-item {
-    min-height: 40px;
-    display: flex;
+	min-height: 40px;
+	display: flex;
 }
 
 #sidebar .menu-item a {
-    width: 100%;
-    padding: 10px 25px;
-    margin-top: auto;
-    margin-bottom: auto;
+	width: 100%;
+	padding: 10px 25px;
+	margin-top: auto;
+	margin-bottom: auto;
 
-    font-size: 12px;
-    text-transform: uppercase;
+	font-size: 12px;
+	text-transform: uppercase;
 }

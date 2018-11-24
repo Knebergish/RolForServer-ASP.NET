@@ -1,49 +1,49 @@
 #forums {
-    padding: 50px 50px;
+	padding: 50px 50px;
 }
 
 #forums #forums-list {
-    --forum-preview-image-size: 100px;
-    width: 100%;
-    padding: 0;
+	--forum-preview-image-size: 100px;
+	width: 100%;
+	padding: 0;
 
-    color: #555;
+	color: #555555;
 }
 
 #forums #forums-list .forum {
-    display: flex;
-    padding: 10px;
-    height: var(--forum-preview-image-size);
-    background-color: #fbfbfb;
-    border: 1px solid #eee;
-    margin-bottom: 10px;
+	display: flex;
+	padding: 10px;
+	height: var(--forum-preview-image-size);
+	background-color: #fbfbfb;
+	border: 1px solid #eeeeee;
+	margin-bottom: 10px;
 }
 
 #forums #forums-list .forum .forum-preview-image {
-    float: left;
-    width: var(--forum-preview-image-size);
-    height: var(--forum-preview-image-size);
-    margin-right: 10px;
+	float: left;
+	width: var(--forum-preview-image-size);
+	height: var(--forum-preview-image-size);
+	margin-right: 10px;
 }
 
 #forums #forums-list .forum .forum-about {
-    height: 100%;
-    width: 100%;
-    position: relative;
+	height: 100%;
+	width: 100%;
+	position: relative;
 }
 
 #forums #forums-list .forum .forum-about .forum-title {
-    font-size: 18px;
+	font-size: 18px;
 }
 
 #forums #forums-list .forum .forum-about .forum-author {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 #forums #forums-list .forum .forum-about .forum-freshness {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }

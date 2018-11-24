@@ -1,82 +1,81 @@
 * {
-    --message-user-info-width: 200px;
+	--message-user-info-width: 200px;
 }
 
 #forum {
-    padding: 50px 50px;
+	padding: 50px 50px;
 }
 
 #forum #messages {
-    border: 1px solid #eee;
-    margin-bottom: 15px;
+	border: 1px solid #eeeeee;
+	margin-bottom: 15px;
 }
 
 #forum #messages .message {
-    border-top: 1px solid #ddd;
+	border-top: 1px solid #dddddd;
 }
 
 #forum #messages .message .message-header {
-    line-height: 30px;
-    padding-left: 10px;
+	line-height: 30px;
+	padding-left: 10px;
 
-    background-color: #f4f4f4;
+	background-color: #f4f4f4;
 }
 
 #forum #messages .message .message-body {
-    overflow: hidden;
+	overflow: hidden;
 
-    background-color: #fbfbfb;
+	background-color: #fbfbfb;
 }
 
 #forum #messages .message .message-body .message-user-info {
-    float: left;
-    width: var(--message-user-info-width);
-    padding: 10px;
+	float: left;
+	width: var(--message-user-info-width);
+	padding: 10px;
 
-    text-align: center;
+	text-align: center;
 }
 
 #forum #messages .message .message-body .message-user-info .message-user-name {
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 10px;
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #forum #messages .message .message-body .message-user-info .user-avatar {
-    height: 200px;
-    width: 200px;
+	height: 200px;
+	width: 200px;
 }
 
 #forum #messages .message .message-body .message-user-info .user-description {
-
 }
 
 #forum #messages .message .message-body .message-user-info .user-description .spoiler-button {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 
-    cursor: pointer;
-    text-align: center;
+	cursor: pointer;
+	text-align: center;
 }
 
 #forum #messages .message .message-body .message-user-info .user-description .spoiler-text {
-    height: 0;
-    overflow: hidden;
+	height: 0;
+	overflow: hidden;
 
-    -webkit-transition: height 1s;
-    -moz-transition: height 1s;
-    -o-transition: height 1s;
-    transition: height 1s;
+	-webkit-transition: height 1s;
+	-moz-transition: height 1s;
+	-o-transition: height 1s;
+	transition: height 1s;
 }
 
 #forum #messages .message .message-body .message-content {
-    margin-left: calc(var(--message-user-info-width) + 20px);
-    padding: 10px;
+	margin-left: calc(var(--message-user-info-width) + 20px);
+	padding: 10px;
 
-    font-size: 16px;
-    font-family: Roboto, serif;
-    line-height: 1.625;
-    color: #555;
+	font-size: 16px;
+	font-family: Roboto, serif;
+	line-height: 1.625;
+	color: #555555;
 }

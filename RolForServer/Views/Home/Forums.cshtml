@@ -4,138 +4,138 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Форумы</title>
-    <link href="~/css/layout.css" rel="stylesheet" type="text/css">
-    <link href="~/css/style.css" rel="stylesheet" type="text/css">
-    <link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
-    <link href="~/css/toolbar/user-info.css" rel="stylesheet" type="text/css">
-    <link href="~/css/toolbar/menu.css" rel="stylesheet" type="text/css">
-    <link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
-    <link href="~/css/content/forums-list.css" rel="stylesheet" type="text/css">
-    <link href="~/css/footer.css" rel="stylesheet" type="text/css">
-    <link href="~/css/fonts.css" rel="stylesheet" type="text/css">
-    <link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Форумы</title>
+	<link href="~/css/layout.css" rel="stylesheet" type="text/css">
+	<link href="~/css/style.css" rel="stylesheet" type="text/css">
+	<link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
+	<link href="~/css/toolbar/user-info.css" rel="stylesheet" type="text/css">
+	<link href="~/css/toolbar/menu.css" rel="stylesheet" type="text/css">
+	<link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
+	<link href="~/css/content/forums-list.css" rel="stylesheet" type="text/css">
+	<link href="~/css/footer.css" rel="stylesheet" type="text/css">
+	<link href="~/css/fonts.css" rel="stylesheet" type="text/css">
+	<link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="toolbar">
-    <div class="toolbar-item toolbar-tool-left popup-parent menu">
-        <div class="cyan-link">Инструменты</div>
-        <div class="popup">
-            <ul>
-                <li>
-                    <a href="" class="cyan-link">Первый пункт меню</a>
-                </li>
-                <li>
-                    <a href="" class="cyan-link">Делай два</a>
-                </li>
-                <li>
-                    <a href="" class="cyan-link">Делай три</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="toolbar-item toolbar-tool-right popup-parent user-info">
-        <a href="" class="cyan-link">
-            Аллар Кнебергиш
-            <img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
-        </a>
-        <div class="popup user-info-popup">
-            <img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
-            <ul>
-                <li>
-                    <a href="" class="cyan-link user-name">Аллар Кнебергиш</a>
-                </li>
-                <li>
-                    <span class="user-role">Администратор</span>
-                </li>
-                <li>
-                    <a href="" class="cyan-link">Выход</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+	<div id="toolbar">
+		<div class="toolbar-item toolbar-tool-left popup-parent menu">
+			<div class="cyan-link">Инструменты</div>
+			<div class="popup">
+				<ul>
+					<li>
+						<a href="" class="cyan-link">Первый пункт меню</a>
+					</li>
+					<li>
+						<a href="" class="cyan-link">Делай два</a>
+					</li>
+					<li>
+						<a href="" class="cyan-link">Делай три</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="toolbar-item toolbar-tool-right popup-parent user-info">
+			<a href="" class="cyan-link">
+				Аллар Кнебергиш
+				<img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
+			</a>
+			<div class="popup user-info-popup">
+				<img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
+				<ul>
+					<li>
+						<a href="" class="cyan-link user-name">Аллар Кнебергиш</a>
+					</li>
+					<li>
+						<span class="user-role">Администратор</span>
+					</li>
+					<li>
+						<a href="" class="cyan-link">Выход</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-<div id="wrapper">
-    <div id="secondary">
-        <div id="sidebar">
-            <div id="site-header">
-                <div id="site-header-title">
-                    <a href="@Url.Action("Index", "Home")" class="gray-link">RolFor</a>
-                </div>
-                <div id="site-header-description">
-                    Лучший игровой форум!
-                </div>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="@Url.Action("Forums", "Home")" class="gray-link">Форумы</a>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="@Url.Action("Forum", "Home", new {id = 0})" class="gray-link">Какой-то форум</a>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="" class="gray-link">Пункт 3</a>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="" class="gray-link">Пункт с очень длинным текстом</a>
-            </div>
-            <hr>
-        </div>
-    </div>
-    <div id="primary">
-        <div id="content">
-            <div id="forums">
-                <h1 id="entry-title">Форумы</h1>
-                <div id="breadcrumb">
-                    <a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
-                        Форумы
-                    </a>
-                    <span class="breadcrumb-item">›</span>
-                </div>
-                <div id="forums-list">
-                    @using (HtmlHelperFormExtensions.BeginForm(Html)) {
-                        foreach (var forum in ViewBag.Forums) {
-                            <div class="forum">
-                                <a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
-                                    <img src="~/images/forums/@Html.Raw(forum.ImageName)"
-                                         class="forum-preview-image" alt="forum_preview">
-                                </a>
-                                <div class="forum-about">
-                                    <a href="@Url.Action("Forum", "Home", new {id = forum.Id})" class="forum-title blue-link">
-                                        @forum.Title
-                                    </a>
-                                    <div class="forum-author">
-                                        Создатель:<br>
-                                        <a href="" class="blue-link">@Repo.Users[forum.AuthorId].Name</a>
-                                    </div>
-                                    <div class="forum-freshness">
-                                        Свежесть:<br>
-                                        <a href="" class="blue-link">
-                                            @Repo.Messages.FindAll(message => message.ForumId == forum.Id).ConvertAll(input => input.Date).Max().Date
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="sidebar_back"></div>
-    <div id="content_back"></div>
-    <div id="clear"></div>
-    <div id="footer">
-        <p>Сайт написан с помощью рук и без мошенничества.</p>
-        <p>Почта администратора сайта: какая_то@поч.та</p>
-    </div>
-</div>
-<a id="to-top-button" title="Наверх">↑</a>
-<script src="~/js/toTopButton.js"></script>
+	<div id="wrapper">
+		<div id="secondary">
+			<div id="sidebar">
+				<div id="site-header">
+					<div id="site-header-title">
+						<a href="@Url.Action("Index", "Home")" class="gray-link">RolFor</a>
+					</div>
+					<div id="site-header-description">
+						Лучший игровой форум!
+					</div>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="@Url.Action("Forums", "Home")" class="gray-link">Форумы</a>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="@Url.Action("Forum", "Home", new {id = 0})" class="gray-link">Какой-то форум</a>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="" class="gray-link">Пункт 3</a>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="" class="gray-link">Пункт с очень длинным текстом</a>
+				</div>
+				<hr>
+			</div>
+		</div>
+		<div id="primary">
+			<div id="content">
+				<div id="forums">
+					<h1 id="entry-title">Форумы</h1>
+					<div id="breadcrumb">
+						<a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
+							Форумы
+						</a>
+						<span class="breadcrumb-item">›</span>
+					</div>
+					<div id="forums-list">
+						@using (HtmlHelperFormExtensions.BeginForm(Html)) {
+							foreach (var forum in ViewBag.Forums) {
+								<div class="forum">
+									<a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
+										<img src="~/images/forums/@Html.Raw(forum.ImageName)"
+											class="forum-preview-image" alt="forum_preview">
+									</a>
+									<div class="forum-about">
+										<a href="@Url.Action("Forum", "Home", new {id = forum.Id})" class="forum-title blue-link">
+											@forum.Title
+										</a>
+										<div class="forum-author">
+											Создатель:<br>
+											<a href="" class="blue-link">@Repo.Users[forum.AuthorId].Name</a>
+										</div>
+										<div class="forum-freshness">
+											Свежесть:<br>
+											<a href="" class="blue-link">
+												@Repo.Messages.FindAll(message => message.ForumId == forum.Id).ConvertAll(input => input.Date).Max().Date
+											</a>
+										</div>
+									</div>
+								</div>
+							}
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="sidebar_back"></div>
+		<div id="content_back"></div>
+		<div id="clear"></div>
+		<div id="footer">
+			<p>Сайт написан с помощью рук и без мошенничества.</p>
+			<p>Почта администратора сайта: какая_то@поч.та</p>
+		</div>
+	</div>
+	<a id="to-top-button" title="Наверх">↑</a>
+	<script src="~/js/toTopButton.js"></script>
 </body>
 </html>

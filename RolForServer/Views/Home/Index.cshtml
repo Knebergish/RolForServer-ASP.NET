@@ -4,113 +4,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Главная</title>
-    <link href="~/css/layout.css" rel="stylesheet" type="text/css">
-    <link href="~/css/style.css" rel="stylesheet" type="text/css">
-    <link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
-    <link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
-    <link href="~/css/sidebar/login-widget.css" rel="stylesheet" type="text/css">
-    <link href="~/css/content/newsletter.css" rel="stylesheet" type="text/css">
-    <link href="~/css/footer.css" rel="stylesheet" type="text/css">
-    <link href="~/css/fonts.css" rel="stylesheet" type="text/css">
-    <link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Главная</title>
+	<link href="~/css/layout.css" rel="stylesheet" type="text/css">
+	<link href="~/css/style.css" rel="stylesheet" type="text/css">
+	<link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
+	<link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
+	<link href="~/css/sidebar/login-widget.css" rel="stylesheet" type="text/css">
+	<link href="~/css/content/newsletter.css" rel="stylesheet" type="text/css">
+	<link href="~/css/footer.css" rel="stylesheet" type="text/css">
+	<link href="~/css/fonts.css" rel="stylesheet" type="text/css">
+	<link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
 
-    <link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/x-icon"/>
-    <link href="/favicon.ico" rel="icon" runat="server" type="image/ico"/>
+	<link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/x-icon"/>
+	<link href="/favicon.ico" rel="icon" runat="server" type="image/ico"/>
 </head>
 <body>
-<div id="toolbar">
-    <div class="toolbar-item toolbar-tool-right popup-parent user-info">
-        <a href="@Url.Action("Register", "Home")" class="cyan-link">Регистрация</a>
-    </div>
-</div>
+	<div id="toolbar">
+		<div class="toolbar-item toolbar-tool-right popup-parent user-info">
+			<a href="@Url.Action("Register", "Home")" class="cyan-link">Регистрация</a>
+		</div>
+	</div>
 
-<div id="wrapper">
-    <div id="secondary">
-        <div id="sidebar">
-            <div id="site-header">
-                <div id="site-header-title">
-                    <a href="@Url.Action("Index", "Home")" class="gray-link">RolFor</a>
-                </div>
-                <div id="site-header-description">
-                    Лучший игровой форум!
-                </div>
-            </div>
-            <hr>
-            <div id="login">
-                <form id="login-form"method="post">
-                    <fieldset>
-                        <legend>Войти</legend>
-                        <div class="input-wrapper">
-                            <label class="label">Имя пользователя: </label>
-                            <input type="text" id="login-username-input" value="" class="input">
-                        </div>
-                        <div class="input-wrapper">
-                            <label class="label">Пароль: </label>
-                            <input type="password" id="login-password-input" value="" class="input">
-                        </div>
-                        <div class="submit-wrapper">
-                            <div id="login-register-link">
-                                <a href="@Url.Action("Register", "Home")" class="gray-link">Регистрация</a>
-                            </div>
-                            <button type="button" id="login-submit-button">Войти</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="@Url.Action("Forums", "Home")" class="gray-link">Форумы</a>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="@Url.Action("Forum", "Home", new {id = 0})" class="gray-link">Какой-то форум</a>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="" class="gray-link">Пункт 3</a>
-            </div>
-            <hr>
-            <div class="menu-item">
-                <a href="" class="gray-link">Пункт с очень длинным текстом</a>
-            </div>
-            <hr>
-        </div>
-    </div>
-    <div id="primary">
-        <div id="content">
-            <div id="newsletter">
-                @using (HtmlHelperFormExtensions.BeginForm(Html)) {
-                    foreach (var news in ViewBag.News) {
-                        <article class="news">
-                            <div class="news-header">
-                                <div class="news-title">
-                                    @news.Title
-                                </div>
-                                <div class="news-meta">
-                                    @news.Date @Repo.Users[news.AuthorId].Name
-                                </div>
-                            </div>
-                            <div class="news-content">
-                                @Html.Raw(news.Text)
-                            </div>
-                        </article>
-                    }
-                }
-            </div>
-        </div>
-    </div>
-    <div id="sidebar_back"></div>
-    <div id="content_back"></div>
-    <div id="clear"></div>
-    <div id="footer">
-        <p>Сайт написан с помощью рук и без мошенничества.</p>
-        <p>Почта администратора сайта: какая_то@поч.та</p>
-    </div>
-</div>
-<a id="to-top-button" title="Наверх">↑</a>
-<script src="~/js/toTopButton.js"></script>
-<script src="~/js/login.js"></script>
+	<div id="wrapper">
+		<div id="secondary">
+			<div id="sidebar">
+				<div id="site-header">
+					<div id="site-header-title">
+						<a href="@Url.Action("Index", "Home")" class="gray-link">RolFor</a>
+					</div>
+					<div id="site-header-description">
+						Лучший игровой форум!
+					</div>
+				</div>
+				<hr>
+				<div id="login">
+					<form id="login-form"method="post">
+						<fieldset>
+							<legend>Войти</legend>
+							<div class="input-wrapper">
+								<label class="label">Имя пользователя: </label>
+								<input type="text" id="login-username-input" value="" class="input">
+							</div>
+							<div class="input-wrapper">
+								<label class="label">Пароль: </label>
+								<input type="password" id="login-password-input" value="" class="input">
+							</div>
+							<div class="submit-wrapper">
+								<div id="login-register-link">
+									<a href="@Url.Action("Register", "Home")" class="gray-link">Регистрация</a>
+								</div>
+								<button type="button" id="login-submit-button">Войти</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="@Url.Action("Forums", "Home")" class="gray-link">Форумы</a>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="@Url.Action("Forum", "Home", new {id = 0})" class="gray-link">Какой-то форум</a>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="" class="gray-link">Пункт 3</a>
+				</div>
+				<hr>
+				<div class="menu-item">
+					<a href="" class="gray-link">Пункт с очень длинным текстом</a>
+				</div>
+				<hr>
+			</div>
+		</div>
+		<div id="primary">
+			<div id="content">
+				<div id="newsletter">
+					@using (HtmlHelperFormExtensions.BeginForm(Html)) {
+						foreach (var news in ViewBag.News) {
+							<article class="news">
+								<div class="news-header">
+									<div class="news-title">
+										@news.Title
+									</div>
+									<div class="news-meta">
+										@news.Date @Repo.Users[news.AuthorId].Name
+									</div>
+								</div>
+								<div class="news-content">
+									@Html.Raw(news.Text)
+								</div>
+							</article>
+						}
+					}
+				</div>
+			</div>
+		</div>
+		<div id="sidebar_back"></div>
+		<div id="content_back"></div>
+		<div id="clear"></div>
+		<div id="footer">
+			<p>Сайт написан с помощью рук и без мошенничества.</p>
+			<p>Почта администратора сайта: какая_то@поч.та</p>
+		</div>
+	</div>
+	<a id="to-top-button" title="Наверх">↑</a>
+	<script src="~/js/toTopButton.js"></script>
+	<script src="~/js/login.js"></script>
 </body>
 </html>
