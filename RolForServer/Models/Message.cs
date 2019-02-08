@@ -2,6 +2,7 @@ using System;
 
 namespace RolForServer.Models {
 	public class Message {
+		public int Id { get; set; }
 		public int ForumId { get; set; }
 		public int UserId { get; set; }
 		public DateTime Date { get; set; }

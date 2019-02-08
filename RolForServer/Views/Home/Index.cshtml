@@ -1,5 +1,6 @@
-@using RolForServer.Views.Home
-@model RolForServer.Models.Message
+@page
+@using RolForServer.Models
+@inject RolForContext RolForContext
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@
 	<link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
 
 	<link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/x-icon"/>
-	<link href="/favicon.ico" rel="icon" runat="server" type="image/ico"/>
+	@* <link href="/favicon.ico" rel="icon" runat="server" type="image/ico"/> *@
 </head>
 <body>
 	<div id="toolbar">
@@ -82,14 +83,14 @@
 			<div id="content">
 				<div id="newsletter">
 					@using (HtmlHelperFormExtensions.BeginForm(Html)) {
-						foreach (var news in ViewBag.News) {
+						foreach (News news in ViewBag.News) {
 							<article class="news">
 								<div class="news-header">
 									<div class="news-title">
 										@news.Title
 									</div>
 									<div class="news-meta">
-										@news.Date @Repo.Users[news.AuthorId].Name
+										@news.Date @RolForContext.Users.Find(news.AuthorId).Name
 									</div>
 								</div>
 								<div class="news-content">

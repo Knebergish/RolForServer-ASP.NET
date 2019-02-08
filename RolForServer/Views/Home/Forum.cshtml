@@ -1,6 +1,7 @@
-@using RolForServer.Views.Home
-
+@using RolForServer.Models
+@inject RolForContext RolForContext
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -104,15 +105,15 @@
 					</div>
 					<div id="messages">
 						@using (HtmlHelperFormExtensions.BeginForm(Html)) {
-							foreach (var message in ViewBag.Messages) {
+							foreach (Message message in ViewBag.Messages) {
 								<div class="message">
 									<div class="message-header">
-										@Html.Raw(message.Date.Date) в @Html.Raw(message.Date.Hour):@Html.Raw(message.Date.Minute)
+										@Html.Raw(message.Date.ToString(DateFormat.DateFormatString)) в @Html.Raw(message.Date.ToString(DateFormat.TimeFormatString))
 									</div>
 									<div class="message-body">
 										<div class="message-user-info">
-											<a href="" class="message-user-name blue-link">@Html.Raw(Repo.Users[message.UserId].Name)</a>
-											<img src="~/images/avatars/@Html.Raw(Repo.Users[message.UserId].AvatarImageName)"
+											<a href="" class="message-user-name blue-link">@Html.Raw(RolForContext.Users.Find(message.UserId).Name)</a>
+											<img src="~/images/avatars/@Html.Raw(RolForContext.Users.Find(message.UserId).AvatarImageName)"
 												alt="avatar-image"
 												class="user-avatar">
 											<div class="user-description">
@@ -120,7 +121,7 @@
 													<summary>Описание</summary>
 												</details>
 												<div class="spoiler-text">
-													@Html.Raw(Repo.Users[message.UserId].Description)
+													@Html.Raw(RolForContext.Users.Find(message.UserId).Description)
 												</div>
 											</div>
 										</div>

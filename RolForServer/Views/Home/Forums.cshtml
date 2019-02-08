@@ -1,5 +1,5 @@
-@using RolForServer.Views.Home
-@model object
+@using RolForServer.Models
+@inject RolForContext RolForContext
 
 <!DOCTYPE HTML>
 <html>
@@ -99,7 +99,7 @@
 					</div>
 					<div id="forums-list">
 						@using (HtmlHelperFormExtensions.BeginForm(Html)) {
-							foreach (var forum in ViewBag.Forums) {
+							foreach (Forum forum in ViewBag.Forums) {
 								<div class="forum">
 									<a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
 										<img src="~/images/forums/@Html.Raw(forum.ImageName)"
@@ -111,12 +111,16 @@
 										</a>
 										<div class="forum-author">
 											Создатель:<br>
-											<a href="" class="blue-link">@Repo.Users[forum.AuthorId].Name</a>
+											<a href="" class="blue-link">@RolForContext.Users.Find(forum.AuthorId).Name</a>
 										</div>
 										<div class="forum-freshness">
 											Свежесть:<br>
 											<a href="" class="blue-link">
-												@Repo.Messages.FindAll(message => message.ForumId == forum.Id).ConvertAll(input => input.Date).Max().Date
+
+												@{
+													var dateTime = RolForContext.Messages.Where(message => message.ForumId == forum.Id).Select(input => input.Date).Max();
+												}
+												@dateTime.ToString(DateFormat.DateFormatString)
 											</a>
 										</div>
 									</div>
