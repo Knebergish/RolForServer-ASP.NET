@@ -1,21 +1,20 @@
-@using RolForServer.Models
-@inject RolForContext RolForContext
+﻿@using RolForServer.Models
 
 <!DOCTYPE HTML>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Форумы</title>
-	<link href="~/css/layout.css" rel="stylesheet" type="text/css">
-	<link href="~/css/style.css" rel="stylesheet" type="text/css">
-	<link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
-	<link href="~/css/toolbar/user-info.css" rel="stylesheet" type="text/css">
-	<link href="~/css/toolbar/menu.css" rel="stylesheet" type="text/css">
-	<link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
-	<link href="~/css/content/forums-list.css" rel="stylesheet" type="text/css">
-	<link href="~/css/footer.css" rel="stylesheet" type="text/css">
-	<link href="~/css/fonts.css" rel="stylesheet" type="text/css">
-	<link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/toolbar.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/user-info.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/menu.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/sidebar/sidebar.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/content/forums-list.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/footer.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/fonts.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/to-top-button.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="toolbar">
@@ -38,10 +37,10 @@
 		<div class="toolbar-item toolbar-tool-right popup-parent user-info">
 			<a href="" class="cyan-link">
 				Аллар Кнебергиш
-				<img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
+				<img src="/Content/Images/Avatars/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
 			</a>
 			<div class="popup user-info-popup">
-				<img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
+				<img src="/Content/Images/Avatars/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
 				<ul>
 					<li>
 						<a href="" class="cyan-link user-name">Аллар Кнебергиш</a>
@@ -98,34 +97,33 @@
 						<span class="breadcrumb-item">›</span>
 					</div>
 					<div id="forums-list">
-						@using (HtmlHelperFormExtensions.BeginForm(Html)) {
-							foreach (Forum forum in ViewBag.Forums) {
-								<div class="forum">
-									<a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
-										<img src="~/images/forums/@Html.Raw(forum.ImageName)"
-											class="forum-preview-image" alt="forum_preview">
+						@foreach (Forum forum in ViewBag.Forums) {
+							<div class="forum">
+								<a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
+									<img src="/Content/Images/Forums/@Html.Raw(forum.ImageName)"
+										class="forum-preview-image" alt="forum_preview">
+								</a>
+								<div class="forum-about">
+									<a href="@Url.Action("Forum", "Home", new {id = forum.Id})" class="forum-title blue-link">
+										@Html.Raw(forum.Title)
 									</a>
-									<div class="forum-about">
-										<a href="@Url.Action("Forum", "Home", new {id = forum.Id})" class="forum-title blue-link">
-											@forum.Title
+									<div class="forum-author">
+										Создатель:<br>
+										<a href="" class="blue-link">
+											@Html.Raw(RolForContext.Users.Find(forum.AuthorId)?.Login)
 										</a>
-										<div class="forum-author">
-											Создатель:<br>
-											<a href="" class="blue-link">@RolForContext.Users.Find(forum.AuthorId).Name</a>
-										</div>
-										<div class="forum-freshness">
-											Свежесть:<br>
-											<a href="" class="blue-link">
-
-												@{
-													var dateTime = RolForContext.Messages.Where(message => message.ForumId == forum.Id).Select(input => input.Date).Max();
-												}
-												@dateTime.ToString(DateFormat.DateFormatString)
-											</a>
-										</div>
+									</div>
+									<div class="forum-freshness">
+										Свежесть:<br>
+										<a href="" class="blue-link">
+											@{
+												var dateTime = RolForContext.Messages.Where(message => message.ForumId == forum.Id).Select(input => input.Date).Max();
+												@Html.Raw(dateTime.ToString(DateFormat.DateFormatString))
+											}
+										</a>
 									</div>
 								</div>
-							}
+							</div>
 						}
 					</div>
 				</div>
@@ -140,6 +138,6 @@
 		</div>
 	</div>
 	<a id="to-top-button" title="Наверх">↑</a>
-	<script src="~/js/toTopButton.js"></script>
+	<script src="/Scripts/toTopButton.js"></script>
 </body>
 </html>

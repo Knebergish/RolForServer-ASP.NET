@@ -1,24 +1,21 @@
-@page
-@using RolForServer.Models
-@inject RolForContext RolForContext
+﻿@using RolForServer.Models
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Главная</title>
-	<link href="~/css/layout.css" rel="stylesheet" type="text/css">
-	<link href="~/css/style.css" rel="stylesheet" type="text/css">
-	<link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
-	<link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
-	<link href="~/css/sidebar/login-widget.css" rel="stylesheet" type="text/css">
-	<link href="~/css/content/newsletter.css" rel="stylesheet" type="text/css">
-	<link href="~/css/footer.css" rel="stylesheet" type="text/css">
-	<link href="~/css/fonts.css" rel="stylesheet" type="text/css">
-	<link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/toolbar.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/sidebar/sidebar.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/sidebar/login-widget.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/content/newsletter.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/footer.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/fonts.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/to-top-button.css" rel="stylesheet" type="text/css">
 
-	<link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/x-icon"/>
-	@* <link href="/favicon.ico" rel="icon" runat="server" type="image/ico"/> *@
+	<link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/ico"/>
 </head>
 <body>
 	<div id="toolbar">
@@ -82,22 +79,20 @@
 		<div id="primary">
 			<div id="content">
 				<div id="newsletter">
-					@using (HtmlHelperFormExtensions.BeginForm(Html)) {
-						foreach (News news in ViewBag.News) {
-							<article class="news">
-								<div class="news-header">
-									<div class="news-title">
-										@news.Title
-									</div>
-									<div class="news-meta">
-										@news.Date @RolForContext.Users.Find(news.AuthorId).Name
-									</div>
+					@foreach (News news in ViewBag.News) {
+						<article class="news">
+							<div class="news-header">
+								<div class="news-title">
+									@Html.Raw(news.Title)
 								</div>
-								<div class="news-content">
-									@Html.Raw(news.Text)
+								<div class="news-meta">
+									@Html.Raw(news.Date) @Html.Raw(RolForContext.Users.Find(news.AuthorId)?.Login)
 								</div>
-							</article>
-						}
+							</div>
+							<div class="news-content">
+								@Html.Raw(news.Text)
+							</div>
+						</article>
 					}
 				</div>
 			</div>
@@ -111,7 +106,7 @@
 		</div>
 	</div>
 	<a id="to-top-button" title="Наверх">↑</a>
-	<script src="~/js/toTopButton.js"></script>
-	<script src="~/js/login.js"></script>
+	<script src="/Scripts/toTopButton.js"></script>
+	<script src="/Scripts/login.js"></script>
 </body>
 </html>

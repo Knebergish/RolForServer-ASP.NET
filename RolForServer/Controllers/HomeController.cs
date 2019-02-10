@@ -1,32 +1,28 @@
 ﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using RolForServer.Models;
+using System.Web.Mvc;
+using RolForServer.Controllers.Auth;
 
 namespace RolForServer.Controllers {
-	public class HomeController : Controller {
-		private readonly RolForContext _rolForContext;
-
-		public HomeController(RolForContext rolForContext) {
-			_rolForContext = rolForContext;
-		}
-
-		public IActionResult Index() {
+	public class HomeController : ControllerBase {
+		public ActionResult Index() {
 			ViewBag.News = _rolForContext.News;
 			return View();
 		}
 
-		public IActionResult Forums() {
+		[AuthenticateAttribute(UserRoles.Admin)]
+		public ActionResult Forums() {
 			ViewBag.Forums = _rolForContext.Forums;
 			return View();
 		}
 
-		public IActionResult Forum(int id = 0) {
+		public ActionResult Forum(int id = 0) {
 			ViewBag.Forum = _rolForContext.Forums.Find(id);
-			ViewBag.Messages = _rolForContext.Messages.Where(message => message.ForumId == id).OrderBy(message => message.Date);
+			ViewBag.Messages = _rolForContext.Messages.Where(message => message.ForumId == id)
+				.OrderBy(message => message.Date);
 			return View();
 		}
 
-		public IActionResult Register() {
+		public ActionResult Register() {
 			return View();
 		}
 	}

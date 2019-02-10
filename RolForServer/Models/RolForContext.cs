@@ -1,6 +1,8 @@
 using System;
+using System.Data.Entity;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
 
 namespace RolForServer.Models {
 	public sealed class RolForContext : DbContext {
@@ -8,15 +10,6 @@ namespace RolForServer.Models {
 		public DbSet<Message> Messages { get; set; }
 		public DbSet<News> News { get; set; }
 		public DbSet<User> Users { get; set; }
-
-		public RolForContext(DbContextOptions<RolForContext> options) : base(options) {
-			Database.EnsureCreated();
-		}
-
-//		protected override void OnModelCreating(ModelBuilder modelBuilder) {
-//			modelBuilder.Entity<Message>()
-//				.HasKey(c => new {c.ForumId, c.UserId});
-//		}
 
 		public override int SaveChanges() {
 			ChangeTracker.DetectChanges();
@@ -29,9 +22,13 @@ namespace RolForServer.Models {
 			return base.SaveChanges();
 		}
 
+		protected override void OnModelCreating(DbModelBuilder builder) {
+			builder.HasDefaultSchema("public");
+			builder.Entity<Forum>().ToTable("Forums");
+		}
+
 		private void UpdateUpdatedProperty<T>() where T : class {
-			var modifiedSourceInfo =
-				ChangeTracker.Entries<T>()
+			var modifiedSourceInfo = ChangeTracker.Entries<T>()
 					.Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
 
 			foreach (var entry in modifiedSourceInfo) {

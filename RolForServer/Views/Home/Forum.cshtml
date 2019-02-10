@@ -1,22 +1,22 @@
-@using RolForServer.Models
-@inject RolForContext RolForContext
+﻿@using RolForServer.Models
+
 <!DOCTYPE html>
 
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>@ViewBag.Forum.Title</title>
-	<link href="~/css/layout.css" rel="stylesheet" type="text/css">
-	<link href="~/css/style.css" rel="stylesheet" type="text/css">
-	<link href="~/css/toolbar/toolbar.css" rel="stylesheet" type="text/css">
-	<link href="~/css/toolbar/user-info.css" rel="stylesheet" type="text/css">
-	<link href="~/css/toolbar/menu.css" rel="stylesheet" type="text/css">
-	<link href="~/css/sidebar/sidebar.css" rel="stylesheet" type="text/css">
-	<link href="~/css/content/forum.css" rel="stylesheet" type="text/css">
-	<link href="~/css/content/wedro.css" rel="stylesheet" type="text/css">
-	<link href="~/css/footer.css" rel="stylesheet" type="text/css">
-	<link href="~/css/fonts.css" rel="stylesheet" type="text/css">
-	<link href="~/css/to-top-button.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/toolbar.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/user-info.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/menu.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/sidebar/sidebar.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/content/forum.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/content/wedro.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/footer.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/fonts.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/to-top-button.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="toolbar">
@@ -39,10 +39,10 @@
 		<div class="toolbar-item toolbar-tool-right popup-parent user-info">
 			<a href="" class="cyan-link">
 				Аллар Кнебергиш
-				<img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
+				<img src="/Content/Images/Avatars/Imperial_Fists_150x150.gif" class="user-info-min-avatar" alt="user-info-min-avatar">
 			</a>
 			<div class="popup user-info-popup">
-				<img src="~/images/avatars/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
+				<img src="/Content/Images/Avatars/Imperial_Fists_150x150.gif" class="user-info-avatar" alt="user-info-avatar">
 				<ul>
 					<li>
 						<a href="" class="cyan-link user-name">Аллар Кнебергиш</a>
@@ -104,33 +104,31 @@
 						</span>
 					</div>
 					<div id="messages">
-						@using (HtmlHelperFormExtensions.BeginForm(Html)) {
-							foreach (Message message in ViewBag.Messages) {
-								<div class="message">
-									<div class="message-header">
-										@Html.Raw(message.Date.ToString(DateFormat.DateFormatString)) в @Html.Raw(message.Date.ToString(DateFormat.TimeFormatString))
-									</div>
-									<div class="message-body">
-										<div class="message-user-info">
-											<a href="" class="message-user-name blue-link">@Html.Raw(RolForContext.Users.Find(message.UserId).Name)</a>
-											<img src="~/images/avatars/@Html.Raw(RolForContext.Users.Find(message.UserId).AvatarImageName)"
-												alt="avatar-image"
-												class="user-avatar">
-											<div class="user-description">
-												<details class="spoiler-button">
-													<summary>Описание</summary>
-												</details>
-												<div class="spoiler-text">
-													@Html.Raw(RolForContext.Users.Find(message.UserId).Description)
-												</div>
+						@foreach (Message message in ViewBag.Messages) {
+							<div class="message">
+								<div class="message-header">
+									@Html.Raw(message.Date.ToString(DateFormat.DateFormatString)) в @Html.Raw(message.Date.ToString(DateFormat.TimeFormatString))
+								</div>
+								<div class="message-body">
+									<div class="message-user-info">
+										<a href="" class="message-user-name blue-link">@Html.Raw(RolForContext.Users.Find(message.UserId)?.Login)</a>
+										<img src="/Content/Images/Avatars/@Html.Raw(RolForContext.Users.Find(message.UserId)?.AvatarImageName)"
+											alt="avatar-image"
+											class="user-avatar">
+										<div class="user-description">
+											<details class="spoiler-button">
+												<summary>Описание</summary>
+											</details>
+											<div class="spoiler-text">
+												@Html.Raw(RolForContext.Users.Find(message.UserId)?.Description)
 											</div>
 										</div>
-										<div class="message-content">
-											@Html.Raw(message.Text)
-										</div>
+									</div>
+									<div class="message-content">
+										@Html.Raw(message.Text)
 									</div>
 								</div>
-							}
+							</div>
 						}
 					</div>
 					<div id="pagination">
@@ -181,8 +179,8 @@
 		</div>
 	</div>
 	<a id="to-top-button" title="Наверх">↑</a>
-	<script src="~/js/toTopButton.js"></script>
-	<script src="~/js/spoiler.js"></script>
-	<script src="~/js/wedro.js"></script>
+	<script src="/Scripts/toTopButton.js"></script>
+	<script src="/Scripts/spoiler.js"></script>
+	<script src="/Scripts/wedro.js"></script>
 </body>
 </html>
