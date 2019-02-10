@@ -35,7 +35,15 @@ namespace RolForServer.Controllers {
 			}
 
 			_IAuthenticationService.Login(user, false);
-			User user1 = _IAuthenticationService.CurrentUser;
+
+			return RedirectToAction("Index", "Home");
+		}
+
+		public ActionResult Logout() {
+			User currentUser = _IAuthenticationService.CurrentUser;
+			if (currentUser != null) {
+				_IAuthenticationService.Logoff();
+			}
 
 			return RedirectToAction("Index", "Home");
 		}

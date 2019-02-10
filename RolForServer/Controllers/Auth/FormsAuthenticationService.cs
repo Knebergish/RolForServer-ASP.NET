@@ -17,6 +17,10 @@ namespace RolForServer.Controllers.Auth {
 		}
 
 		public void Login(User user, bool rememberMe) {
+			if (_currentUser != null) {
+				Logoff();
+			}
+
 			DateTime expiresDate = DateTime.Now.AddMinutes(30);
 			if (rememberMe)
 				expiresDate = expiresDate.AddDays(10);

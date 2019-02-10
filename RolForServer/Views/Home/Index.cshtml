@@ -8,6 +8,8 @@
 	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/toolbar/toolbar.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/user-info.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/toolbar/menu.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/sidebar/sidebar.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/sidebar/login-widget.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/content/newsletter.css" rel="stylesheet" type="text/css">
@@ -19,63 +21,12 @@
 </head>
 <body>
 	<div id="toolbar">
-		<div class="toolbar-item toolbar-tool-right popup-parent user-info">
-			<a href="@Url.Action("Register", "Home")" class="cyan-link">Регистрация</a>
-		</div>
+		@Html.Partial("Toolbar/_UserInfo")
 	</div>
 
 	<div id="wrapper">
-		<div id="secondary">
-			<div id="sidebar">
-				<div id="site-header">
-					<div id="site-header-title">
-						<a href="@Url.Action("Index", "Home")" class="gray-link">RolFor</a>
-					</div>
-					<div id="site-header-description">
-						Лучший игровой форум!
-					</div>
-				</div>
-				<hr>
-				<div id="login">
-					<form id="login-form"method="post">
-						<fieldset>
-							<legend>Войти</legend>
-							<div class="input-wrapper">
-								<label class="label">Имя пользователя: </label>
-								<input type="text" id="login-username-input" value="" class="input">
-							</div>
-							<div class="input-wrapper">
-								<label class="label">Пароль: </label>
-								<input type="password" id="login-password-input" value="" class="input">
-							</div>
-							<div class="submit-wrapper">
-								<div id="login-register-link">
-									<a href="@Url.Action("Register", "Home")" class="gray-link">Регистрация</a>
-								</div>
-								<button type="button" id="login-submit-button">Войти</button>
-							</div>
-						</fieldset>
-					</form>
-				</div>
-				<hr>
-				<div class="menu-item">
-					<a href="@Url.Action("Forums", "Home")" class="gray-link">Форумы</a>
-				</div>
-				<hr>
-				<div class="menu-item">
-					<a href="@Url.Action("Forum", "Home", new {id = 0})" class="gray-link">Какой-то форум</a>
-				</div>
-				<hr>
-				<div class="menu-item">
-					<a href="" class="gray-link">Пункт 3</a>
-				</div>
-				<hr>
-				<div class="menu-item">
-					<a href="" class="gray-link">Пункт с очень длинным текстом</a>
-				</div>
-				<hr>
-			</div>
-		</div>
+		@Html.Partial("Sidebar/_Sidebar")
+		
 		<div id="primary">
 			<div id="content">
 				<div id="newsletter">
@@ -97,16 +48,10 @@
 				</div>
 			</div>
 		</div>
-		<div id="sidebar_back"></div>
-		<div id="content_back"></div>
-		<div id="clear"></div>
-		<div id="footer">
-			<p>Сайт написан с помощью рук и без мошенничества.</p>
-			<p>Почта администратора сайта: какая_то@поч.та</p>
-		</div>
+		
+		@Html.Partial("Footer/_Footer")
 	</div>
 	<a id="to-top-button" title="Наверх">↑</a>
 	<script src="/Scripts/toTopButton.js"></script>
-	<script src="/Scripts/login.js"></script>
 </body>
 </html>

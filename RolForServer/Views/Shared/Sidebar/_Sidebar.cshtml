@@ -1,0 +1,24 @@
+﻿<div id="secondary">
+	<div id="sidebar">
+		@Html.Partial("Sidebar/_Header")
+		<hr>
+		@Html.Partial("Sidebar/_Login")
+		<hr>
+		@Html.Partial("Sidebar/_MenuItem", new ViewDataDictionary {
+			{"Url", Url.Action("Forums", "Home")}, {"Text", "Форумы"}
+		})
+		<hr>
+		@Html.Partial("Sidebar/_MenuItem", new ViewDataDictionary {
+			{"Url", Url.Action("Forum", "Home", new {id = 0})}, {"Text", "Какой-то форум"}
+		})
+		<hr>
+		@Html.Partial("Sidebar/_MenuItem", new ViewDataDictionary {
+			{"Url", ""}, {"Text", "Пункт 3"}
+		})
+		<hr>
+		@Html.Partial("Sidebar/_MenuItem", new ViewDataDictionary {
+			{"Url", ""}, {"Text", "Пункт с очень длинным текстом"}
+		})
+		<hr>
+	</div>
+</div>

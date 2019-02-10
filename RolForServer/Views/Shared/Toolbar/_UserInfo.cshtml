@@ -1,0 +1,25 @@
+﻿<div class="toolbar-item toolbar-tool-right popup-parent user-info">
+	@if (IsAuthenticated) {
+		<a href="" class="cyan-link">
+			@Html.Raw(User.Login)
+			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-min-avatar" alt="user-info-min-avatar">
+		</a>
+		<div class="popup user-info-popup">
+			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-avatar" alt="user-info-avatar">
+			<ul>
+				<li>
+					<a href="" class="cyan-link user-name">@Html.Raw(User.Login)</a>
+				</li>
+				<li>
+					<span class="user-role">Администратор</span>
+				</li>
+				<li>
+					<a href="@Url.Action("Logout", "Auth")" class="cyan-link">Выход</a>
+				</li>
+			</ul>
+		</div>
+	}
+	else {
+		<a href="@Url.Action("Login", "Auth")" class="cyan-link">Войти</a>
+	}
+</div>

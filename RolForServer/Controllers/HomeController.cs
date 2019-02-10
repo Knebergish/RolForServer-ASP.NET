@@ -9,7 +9,7 @@ namespace RolForServer.Controllers {
 			return View();
 		}
 
-		[AuthenticateAttribute(UserRoles.Admin)]
+		[AuthenticateAttribute(UserRoles.Master)]
 		public ActionResult Forums() {
 			ViewBag.Forums = _rolForContext.Forums;
 			return View();

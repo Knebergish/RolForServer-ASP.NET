@@ -1,0 +1,22 @@
+﻿<div id="login">
+	<form id="login-form"method="post">
+		<fieldset>
+			<legend>Войти</legend>
+			<div class="input-wrapper">
+				<label class="label">Имя пользователя: </label>
+				<input type="text" id="login-username-input" value="" class="input">
+			</div>
+			<div class="input-wrapper">
+				<label class="label">Пароль: </label>
+				<input type="password" id="login-password-input" value="" class="input">
+			</div>
+			<div class="submit-wrapper">
+				<div id="login-register-link">
+					<a href="@Url.Action("Register", "Home")" class="gray-link">Регистрация</a>
+				</div>
+				<button type="button" id="login-submit-button">Войти</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<script src="/Scripts/login.js"></script>
