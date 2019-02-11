@@ -18,10 +18,10 @@
 				@if (!String.IsNullOrEmpty(ViewBag.ErrorMessage)) {
 					<h1>Гавно: @Html.Raw(ViewBag.ErrorMessage)</h1>
 				}
-				<form action="Log" method="post">
+				@using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
 					<div class="form-group">
 						<label>User Name</label>
-						<input type="text" class="form-control" id="userName" name="userName" placeholder="Enter user name">
+						<input type="text" class="form-control" id="login" name="login" placeholder="Enter user name">
 					</div>
 					<div class="form-group">
 						<label>Password</label>
@@ -31,7 +31,7 @@
 						<button class="btn btn-info" type="reset">Reset</button>
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
-				</form>
+				}
 			</div>
 		</div>
 	</div>

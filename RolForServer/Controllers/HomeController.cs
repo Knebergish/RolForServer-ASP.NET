@@ -9,20 +9,16 @@ namespace RolForServer.Controllers {
 			return View();
 		}
 
-		[AuthenticateAttribute(UserRoles.Master)]
+		[AuthenticateAttribute(UserRoles.User)]
 		public ActionResult Forums() {
 			ViewBag.Forums = _rolForContext.Forums;
 			return View();
 		}
-
+		[AuthenticateAttribute(UserRoles.User)]
 		public ActionResult Forum(int id = 0) {
 			ViewBag.Forum = _rolForContext.Forums.Find(id);
 			ViewBag.Messages = _rolForContext.Messages.Where(message => message.ForumId == id)
 				.OrderBy(message => message.Date);
-			return View();
-		}
-
-		public ActionResult Register() {
 			return View();
 		}
 	}

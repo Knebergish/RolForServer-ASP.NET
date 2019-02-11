@@ -18,7 +18,7 @@ namespace RolForServer.Controllers.Auth {
 
 		public void Login(User user, bool rememberMe) {
 			if (_currentUser != null) {
-				Logoff();
+				Logout();
 			}
 
 			DateTime expiresDate = DateTime.Now.AddMinutes(30);
@@ -37,19 +37,9 @@ namespace RolForServer.Controllers.Auth {
 			_currentUser = user;
 		}
 
-		public void Logoff() {
+		public void Logout() {
 			SetValue(AuthCookieName, null, DateTime.Now.AddYears(-1));
 			_currentUser = null;
-		}
-
-		/// &lt;summary&gt;
-		/// Generate password
-		/// &lt;/summary&gt;
-		/// &lt;param name="pass"&gt;Original password&lt;/param&gt;
-		/// &lt;param name="salt"&gt;User ID + " " + User.ID&lt;/param&gt;
-		/// &lt;returns&gt;&lt;/returns&gt;
-		public string GeneratePassword(string pass, string salt) {
-			return ""; //OxoCrypt.MD5(pass + OxoCrypt.MD5(pass + salt + " " + salt));
 		}
 
 		private User _currentUser;

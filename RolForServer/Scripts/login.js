@@ -7,28 +7,34 @@
 
 	const invalidCredentialsLabel = document.createElement("Label");
 	invalidCredentialsLabel.id = "invalid-credentials-error-message";
-	invalidCredentialsLabel.innerHTML = "Неверный логин или пароль<br>";
+	invalidCredentialsLabel.innerHTML = "";
 	invalidCredentialsLabel.hidden = true;
 	loginForm.appendChild(invalidCredentialsLabel);
 
 	let errorCount = 0;
 
 	function validate() {
-		if (login.value === 'Knebergish' && password.value === '12345') {
-			document.location.href = "/Home/Forums";
-		} else {
-			invalidCredentialsLabel.hidden = false;
-			errorCount++;
-			setTimeout(hideInvalidCredentialsLabel, 3000);
-		}
-		event.preventDefault();
+		let parameters = "login=" + login.value + "&password=" + password.value;
+		ajax("/Auth/CheckUser", parameters, function (text) {
+			if (text !== "") {
+				invalidCredentialsLabel.innerHTML = text + "<br>";
+				invalidCredentialsLabel.hidden = false;
+				errorCount++;
+				setTimeout(hideInvalidCredentialsLabel, 3000);
+			}
+			else {
+				document.location.href = "/Auth/Authenticate?" + parameters;
+			}
+		});
 	}
 
 	function hideInvalidCredentialsLabel() {
 		if (errorCount === 1) {
 			invalidCredentialsLabel.hidden = true;
+			invalidCredentialsLabel.innerHTML = "";
 			errorCount = 0;
-		} else
+		} else {
 			errorCount--;
+		}
 	}
 })();

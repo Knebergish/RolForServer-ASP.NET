@@ -1,22 +1,24 @@
-﻿<div id="login">
-	<form id="login-form"method="post">
+﻿@if (!IsAuthenticated) {
+	<div id="login">
+		using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
 		<fieldset>
 			<legend>Войти</legend>
 			<div class="input-wrapper">
 				<label class="label">Имя пользователя: </label>
-				<input type="text" id="login-username-input" value="" class="input">
+				<input type="text" id="login-username-input" name="login" value="" class="input">
 			</div>
 			<div class="input-wrapper">
 				<label class="label">Пароль: </label>
-				<input type="password" id="login-password-input" value="" class="input">
+				<input type="password" id="login-password-input" name="password" value="" class="input">
 			</div>
 			<div class="submit-wrapper">
 				<div id="login-register-link">
-					<a href="@Url.Action("Register", "Home")" class="gray-link">Регистрация</a>
+					<a href="@Url.Action("Register", "Auth")" class="gray-link">Регистрация</a>
 				</div>
 				<button type="button" id="login-submit-button">Войти</button>
 			</div>
 		</fieldset>
-	</form>
-</div>
-<script src="/Scripts/login.js"></script>
+		}
+	</div>
+	<script src="/Scripts/login.js"></script>
+}

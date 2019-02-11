@@ -13,23 +13,17 @@ namespace RolForServer.Controllers {
 			_IAuthenticationService = DependencyResolver.Current.GetService<IAuthenticationService>();
 		}
 
-//		[HttpGet]
-//		public ActionResult Login() {
-//			return View();
-//		}
-//
-//		[HttpPost]
 		public ActionResult Login(string errorMessage = "") {
 			ViewBag.ErrorMessage = errorMessage;
 			return View();
 		}
 
-		public ActionResult Log(string userName, string password) {
-			if (String.IsNullOrEmpty(userName) || String.IsNullOrEmpty(password)) {
+		public ActionResult Authenticate(string login, string password) {
+			if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password)) {
 				return RedirectToAction("Login", new {errorMessage = "Что-то пусто."});
 			}
 
-			User user = _rolForContext.Users.SingleOrDefault(u => u.Login.Equals(userName));
+			User user = _rolForContext.Users.SingleOrDefault(u => u.Login.Equals(login));
 			if (user == null || !user.Password.Equals(password)) {
 				return RedirectToAction("Login", new {errorMessage = "Что-то не так."});
 			}
@@ -39,10 +33,27 @@ namespace RolForServer.Controllers {
 			return RedirectToAction("Index", "Home");
 		}
 
+		public string CheckUser(string login, string password) {
+			if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password)) {
+				return "Что-то пусто.";
+			}
+
+			User user = _rolForContext.Users.SingleOrDefault(u => u.Login.Equals(login));
+			if (user == null || !user.Password.Equals(password)) {
+				return "Что-то не так.";
+			}
+
+			return "";
+		}
+
+		public ActionResult Register() {
+			return View();
+		}
+
 		public ActionResult Logout() {
 			User currentUser = _IAuthenticationService.CurrentUser;
 			if (currentUser != null) {
-				_IAuthenticationService.Logoff();
+				_IAuthenticationService.Logout();
 			}
 
 			return RedirectToAction("Index", "Home");
