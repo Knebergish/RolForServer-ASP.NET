@@ -6,34 +6,18 @@
 
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Регистрация</title>
+	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/sidebar/login-widget.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/fonts.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<h2>
-					<strong>Login Page</strong>
-				</h2>
-				<br/>
-				@if (!String.IsNullOrEmpty(ViewBag.ErrorMessage)) {
-					<h1>Гавно: @Html.Raw(ViewBag.ErrorMessage)</h1>
-				}
-				@using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
-					<div class="form-group">
-						<label>User Name</label>
-						<input type="text" class="form-control" id="login" name="login" placeholder="Enter user name">
-					</div>
-					<div class="form-group">
-						<label>Password</label>
-						<input type="password" class="form-control" name="password" id="password" placeholder="Password">
-					</div>
-					<div class="form-check">
-						<button class="btn btn-info" type="reset">Reset</button>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</div>
-				}
-			</div>
-		</div>
+	<div id="login-page">
+		@Html.Partial("Sidebar/_Login")
 	</div>
+
+	<script src="/Scripts/common.js"></script>
 </body>
 </html>

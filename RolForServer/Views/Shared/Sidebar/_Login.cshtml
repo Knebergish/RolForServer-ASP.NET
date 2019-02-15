@@ -2,7 +2,7 @@
 
 <div id="login">
 	@if (!IsAuthenticated) {
-		using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
+		<form id="login-form">
 			<fieldset>
 				<legend>Войти</legend>
 				<div class="input-wrapper">
@@ -20,7 +20,8 @@
 					<button type="button" id="login-submit-button">Войти</button>
 				</div>
 			</fieldset>
-		}
+			<div id="invalid-credentials-error-message"></div>
+		</form>
 		<script src="/Scripts/login.js"></script>
 	}
 	else {

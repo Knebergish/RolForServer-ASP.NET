@@ -1,15 +1,11 @@
 ﻿(function () {
-	const loginForm = document.getElementById('login-form');
 	const login = document.getElementById('login-username-input');
 	const password = document.getElementById('login-password-input');
 	const button = document.getElementById('login-submit-button');
 	button.onclick = validate;
 
-	const invalidCredentialsLabel = document.createElement("Label");
-	invalidCredentialsLabel.id = "invalid-credentials-error-message";
-	invalidCredentialsLabel.innerHTML = "";
+	const invalidCredentialsLabel = document.getElementById("invalid-credentials-error-message");
 	invalidCredentialsLabel.hidden = true;
-	loginForm.appendChild(invalidCredentialsLabel);
 
 	let errorCount = 0;
 
