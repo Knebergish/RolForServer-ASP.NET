@@ -7,6 +7,7 @@ using System.Linq;
 namespace RolForServer.Models {
 	public sealed class RolForContext : DbContext {
 		public DbSet<Forum> Forums { get; set; }
+		public DbSet<Topic> Topics { get; set; }
 		public DbSet<Message> Messages { get; set; }
 		public DbSet<News> News { get; set; }
 		public DbSet<User> Users { get; set; }

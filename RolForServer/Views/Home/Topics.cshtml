@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Форумы</title>
+	<title>@ViewBag.Forum.Title</title>
 	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/toolbar/toolbar.css" rel="stylesheet" type="text/css">
@@ -45,44 +45,47 @@
 		<div id="primary">
 			<div id="content">
 				<div id="forums">
-					<h1 id="entry-title">Форумы</h1>
+					<h1 id="entry-title">@ViewBag.Forum.Title</h1>
 					<div id="breadcrumb">
 						<a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
 							Форумы
 						</a>
 						<span class="breadcrumb-item">›</span>
+						<a href="@Url.Action("Topics", "Home", new {forumId = ViewBag.Forum.Id})" class="breadcrumb-item blue-link">
+							@ViewBag.Forum.Title
+						</a>
+						<span class="breadcrumb-item">›</span>
 					</div>
 					<div id="forums-list">
-						@foreach (Forum forum in ViewBag.Forums) {
+						@foreach (Topic topic in ViewBag.Topics) {
 							<div class="forum">
-								<a href="@Url.Action("Forum", "Home", new {id = forum.Id})">
-									<img src="/Content/Images/Forums/@Html.Raw(forum.ImageName)"
-										class="forum-preview-image" alt="forum_preview">
+								<a href="@Url.Action("Messages", "Home", new {topicId = topic.Id})">
+									<img src="/Content/Images/Topics/@Html.Raw(topic.ImageName)"
+										class="forum-preview-image" alt="topic_preview">
 								</a>
 								<div class="forum-about">
 									<div class="forum-title">
-										<a href="@Url.Action("Topics", "Home", new {forumId = forum.Id})" class="blue-link">
-											@Html.Raw(forum.Title)
+										<a href="@Url.Action("Messages", "Home", new {topicId = topic.Id})" class="blue-link">
+											@Html.Raw(topic.Title)
 										</a>
 									</div>
 									<div class="forum-description">
-										@Html.Raw(forum.Description)
+										@Html.Raw(topic.Description)
 									</div>
 									<div class="forum-meta">
 										<div class="forum-author">
-											Создатель:<br>
+											Создатель:
+											<br>
 											<a href="" class="blue-link">
-												@Html.Raw(RolForContext.Users.Find(forum.AuthorId)?.Login)
+												@Html.Raw(RolForContext.Users.Find(topic.AuthorId)?.Login)
 											</a>
 										</div>
 										<div class="forum-freshness">
-											Свежесть:<br>
+											Свежесть:
+											<br>
 											<a href="" class="blue-link">
 												@{
-													var topicIds = RolForContext.Topics.Where(topic => topic.ForumId == forum.Id).Select(topic => topic.Id);
-													var messages = RolForContext.Messages.Where(message => topicIds.Contains(message.TopicId));
-													var dateTimes = messages.Select(input => input.Date);
-													var dateTime = dateTimes.DefaultIfEmpty().Max();
+													var dateTime = RolForContext.Messages.Where(message => message.TopicId == topic.Id).Select(input => input.Date).Max();
 													@Html.Raw(dateTime.ToString(DateFormat.DateFormatString))
 												}
 											</a>

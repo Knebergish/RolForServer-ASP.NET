@@ -1,6 +1,5 @@
 using System.Web;
 using System.Web.Mvc;
-using Ninject;
 using RolForServer.Models;
 
 namespace RolForServer.Controllers.Auth {

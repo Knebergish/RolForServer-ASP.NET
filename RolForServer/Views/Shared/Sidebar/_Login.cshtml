@@ -1,6 +1,6 @@
 ﻿@if (!IsAuthenticated) {
 	<div id="login">
-		using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
+		@using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
 		<fieldset>
 			<legend>Войти</legend>
 			<div class="input-wrapper">
