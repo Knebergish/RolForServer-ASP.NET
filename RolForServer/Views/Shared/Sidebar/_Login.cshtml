@@ -1,24 +1,40 @@
-﻿@if (!IsAuthenticated) {
-	<div id="login">
-		@using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
-		<fieldset>
-			<legend>Войти</legend>
-			<div class="input-wrapper">
-				<label class="label">Имя пользователя: </label>
-				<input type="text" id="login-username-input" name="login" value="" class="input">
-			</div>
-			<div class="input-wrapper">
-				<label class="label">Пароль: </label>
-				<input type="password" id="login-password-input" name="password" value="" class="input">
-			</div>
-			<div class="submit-wrapper">
-				<div id="login-register-link">
-					<a href="@Url.Action("Register", "Auth")" class="gray-link">Регистрация</a>
+﻿<div id="login">
+	@if (!IsAuthenticated) {
+		using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
+			<fieldset>
+				<legend>Войти</legend>
+				<div class="input-wrapper">
+					<label class="label">Имя пользователя: </label>
+					<input type="text" id="login-username-input" name="login" value="" class="input">
 				</div>
-				<button type="button" id="login-submit-button">Войти</button>
-			</div>
-		</fieldset>
+				<div class="input-wrapper">
+					<label class="label">Пароль: </label>
+					<input type="password" id="login-password-input" name="password" value="" class="input">
+				</div>
+				<div class="submit-wrapper">
+					<div id="login-register-link">
+						<a href="@Url.Action("Register", "Auth")" class="gray-link">Регистрация</a>
+					</div>
+					<button type="button" id="login-submit-button">Войти</button>
+				</div>
+			</fieldset>
 		}
-	</div>
-	<script src="/Scripts/login.js"></script>
-}
+		<script src="/Scripts/login.js"></script>
+	}
+	else {
+		<div id="login-widget">
+			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-avatar" alt="user-info-avatar">
+			<ul>
+				<li>
+					<a href="" class="cyan-link user-name">@Html.Raw(User.Login)</a>
+				</li>
+				<li>
+					<span class="user-role">Администратор</span>
+				</li>
+				<li>
+					<a href="@Url.Action("Logout", "Auth")" class="cyan-link">Выход</a>
+				</li>
+			</ul>
+		</div>
+	}
+</div>

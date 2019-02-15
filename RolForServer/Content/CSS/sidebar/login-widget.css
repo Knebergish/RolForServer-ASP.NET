@@ -1,4 +1,4 @@
-#login {
+#login #login-form {
 	padding: 25px;
 	line-height: 23px;
 
@@ -66,4 +66,46 @@
 
 #invalid-credentials-error-message {
 	color: red;
+}
+
+#login #login-widget {
+	--login-widget-avatar-size: 70px;
+
+	padding: 15px;
+	line-height: 23px;
+
+	font-size: 14px;
+}
+
+#login #login-widget ul {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+	white-space: nowrap;
+}
+
+#login #login-widget ul li {
+	position: relative;
+	margin-left: calc(var(--login-widget-avatar-size) + 20px);
+}
+
+#login #login-widget .user-info-avatar {
+	position: absolute;
+	width: var(--login-widget-avatar-size);
+	height: var(--login-widget-avatar-size);
+}
+
+#login #login-widget .user-name {
+	display: block;
+	height: 18px;
+}
+
+#login #login-widget .user-role {
+	display: block;
+	height: 18px;
+	padding-bottom: 10px;
+
+	color: #a0a5aa;
+	font-size: 11px;
 }
