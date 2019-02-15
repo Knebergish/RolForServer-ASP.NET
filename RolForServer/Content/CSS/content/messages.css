@@ -38,7 +38,7 @@
 
 #container #messages .message .message-body .message-user-info .message-user-name {
 	display: block;
-	padding-top: 10px;
+	line-height: 1.625;
 	padding-bottom: 10px;
 }
 
