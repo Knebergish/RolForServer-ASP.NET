@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace RolForServer.Controllers.Auth {
 	public enum UserRoles {
@@ -11,22 +10,21 @@ namespace RolForServer.Controllers.Auth {
 	}
 
 	public static class RolesHelper {
-		private static UserRoles[] _roles;
-
-		public static UserRoles[] GetRoles() {
-			if (_roles == null || _roles.Length == 0) {
-				UserRoles[] roles = Enum.GetValues(typeof(UserRoles)) as UserRoles[];
-				List<UserRoles> rolesToArr = new List<UserRoles>();
-				foreach (UserRoles userRolese in roles) {
-					if (userRolese != UserRoles.None) {
-						rolesToArr.Add(userRolese);
-					}
-				}
-
-				_roles = rolesToArr.ToArray();
+		public static String GetLocalizedName(this UserRoles role) {
+			switch (role) {
+				case UserRoles.None:
+					return "Никто";
+				case UserRoles.User:
+					return "Пользователь";
+				case UserRoles.Master:
+					return "Мастер";
+				case UserRoles.Moderator:
+					return "Модератор";
+				case UserRoles.Admin:
+					return "Администратор";
+				default:
+					return "What?!";
 			}
-
-			return _roles;
 		}
 	}
 }

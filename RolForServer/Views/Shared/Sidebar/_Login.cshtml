@@ -1,4 +1,6 @@
-﻿<div id="login">
+﻿@using RolForServer.Controllers.Auth
+
+<div id="login">
 	@if (!IsAuthenticated) {
 		using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post, new {id = "login-form"})) {
 			<fieldset>
@@ -26,10 +28,12 @@
 			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-avatar" alt="user-info-avatar">
 			<ul>
 				<li>
-					<a href="" class="cyan-link user-name">@Html.Raw(User.Login)</a>
+					<a href="" class="cyan-link user-name">
+						<div>@Html.Raw(User.Name)</div>
+					</a>
 				</li>
 				<li>
-					<span class="user-role">Администратор</span>
+					<span class="user-role">@Html.Raw(User.Role.GetLocalizedName())</span>
 				</li>
 				<li>
 					<a href="@Url.Action("Logout", "Auth")" class="cyan-link">Выход</a>

@@ -72,7 +72,6 @@
 	--login-widget-avatar-size: 70px;
 
 	padding: 15px;
-	line-height: 23px;
 
 	font-size: 14px;
 }
@@ -82,12 +81,12 @@
 	padding: 0;
 
 	list-style: none;
-	white-space: nowrap;
 }
 
 #login #login-widget ul li {
 	position: relative;
 	margin-left: calc(var(--login-widget-avatar-size) + 20px);
+	word-wrap: break-word;
 }
 
 #login #login-widget .user-info-avatar {
@@ -97,7 +96,6 @@
 }
 
 #login #login-widget .user-name {
-	display: block;
 	height: 18px;
 }
 
@@ -105,6 +103,7 @@
 	display: block;
 	height: 18px;
 	padding-bottom: 10px;
+	line-height: 23px;
 
 	color: #a0a5aa;
 	font-size: 11px;

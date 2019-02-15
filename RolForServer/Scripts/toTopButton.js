@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 	const goTopBtn = document.getElementById('to-top-button');
 
 	window.addEventListener('scroll', trackScroll);

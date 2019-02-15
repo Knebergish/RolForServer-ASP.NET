@@ -1,4 +1,4 @@
-function ajax(url, parameters, callback) {
+﻿function ajax(url, parameters, callback) {
 	const xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("POST", url, true);
 

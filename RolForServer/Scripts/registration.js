@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 	const registerForm = document.getElementById('registration-form');
 	const login = document.getElementById('registration-login-input');
 	const username = document.getElementById('registration-username-input');

@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 	const htmlTabIndicator = document.getElementById('html-tab-indicator');
 	const visualTabIndicator = document.getElementById('visual-tab-indicator');
 	const visualTab = document.getElementById('visual-tab');
