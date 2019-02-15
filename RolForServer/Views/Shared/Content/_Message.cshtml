@@ -1,0 +1,27 @@
+﻿@using RolForServer.Models
+@model Message
+
+<div class="message">
+	<div class="message-header">
+		@Html.Raw(Model.Date.ToString(DateFormat.DateFormatString)) в @Html.Raw(Model.Date.ToString(DateFormat.TimeFormatString))
+	</div>
+	<div class="message-body">
+		<div class="message-user-info">
+			<a href="" class="message-user-name blue-link">@Html.Raw(RolForContext.Users.Find(Model.UserId)?.Login)</a>
+			<img src="/Content/Images/Avatars/@Html.Raw(RolForContext.Users.Find(Model.UserId)?.AvatarImageName)"
+				alt="avatar-image"
+				class="user-avatar">
+			<div class="user-description">
+				<details class="spoiler-button">
+					<summary>Описание</summary>
+				</details>
+				<div class="spoiler-text">
+					@Html.Raw(RolForContext.Users.Find(Model.UserId)?.Description)
+				</div>
+			</div>
+		</div>
+		<div class="message-content">
+			@Html.Raw(Model.Text)
+		</div>
+	</div>
+</div>

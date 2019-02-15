@@ -1,4 +1,4 @@
-﻿@using RolForServer.Models
+@using RolForServer.Models
 
 <!DOCTYPE html>
 
@@ -51,30 +51,7 @@
 					@Html.Partial("Content/_ContainerBreadcrumb", (Container) ViewBag.Container)
 					<div id="messages">
 						@foreach (Message message in ViewBag.Messages) {
-							<div class="message">
-								<div class="message-header">
-									@Html.Raw(message.Date.ToString(DateFormat.DateFormatString)) в @Html.Raw(message.Date.ToString(DateFormat.TimeFormatString))
-								</div>
-								<div class="message-body">
-									<div class="message-user-info">
-										<a href="" class="message-user-name blue-link">@Html.Raw(RolForContext.Users.Find(message.UserId)?.Login)</a>
-										<img src="/Content/Images/Avatars/@Html.Raw(RolForContext.Users.Find(message.UserId)?.AvatarImageName)"
-											alt="avatar-image"
-											class="user-avatar">
-										<div class="user-description">
-											<details class="spoiler-button">
-												<summary>Описание</summary>
-											</details>
-											<div class="spoiler-text">
-												@Html.Raw(RolForContext.Users.Find(message.UserId)?.Description)
-											</div>
-										</div>
-									</div>
-									<div class="message-content">
-										@Html.Raw(message.Text)
-									</div>
-								</div>
-							</div>
+							@Html.Partial("Content/_Message", message)
 						}
 					</div>
 					<div id="pagination">
@@ -101,12 +78,8 @@
 							<div class="clear"></div>
 
 							<div id="tabs-wrapper">
-								<div contentEditable="true" id="visual-tab" class="tab">
-									Здесь <i>могла</i> быть <b>ваша</b> <u>реклама</u>.
-								</div>
-								<div contentEditable="true" id="html-tab" class="tab" hidden="">
-									Когда-то и меня вела дорога приключений...
-								</div>
+								<div contentEditable="true" id="visual-tab" class="tab"></div>
+								<div contentEditable="true" id="html-tab" class="tab" hidden=""></div>
 							</div>
 						</div>
 						<div id="submit-wrapper">
@@ -120,6 +93,7 @@
 		@Html.Partial("Footer/_Footer")
 	</div>
 	<a id="to-top-button" title="Наверх">↑</a>
+	<script src="/Scripts/common.js"></script>
 	<script src="/Scripts/toTopButton.js"></script>
 	<script src="/Scripts/spoiler.js"></script>
 	<script src="/Scripts/wedro.js"></script>

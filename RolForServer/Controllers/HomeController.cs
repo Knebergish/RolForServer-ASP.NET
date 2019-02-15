@@ -42,6 +42,27 @@ namespace RolForServer.Controllers {
 			return View("Messages");
 		}
 
+		[ValidateInput(false)]
+		[AuthenticateAttribute(UserRoles.User)]
+		public ActionResult AddMessage(int containerId, string text) {
+			GetContainer(containerId);
+			int childrenCount = _rolForContext.Containers.Count(con => con.ParentId == containerId);
+			if (childrenCount != 0) {
+				throw new Exception($"Контейнер с id = {containerId} не может содержать сообщений," +
+									" т.к. является родителем для других контейнеров.");
+			}
+
+			Message message = new Message() {
+				UserId = CurrentUser.Id,
+				ContainerId = containerId,
+				Date = DateTime.Now,
+				Text = text
+			};
+			message = _rolForContext.Messages.Add(message);
+			_rolForContext.SaveChanges();
+			return PartialView("Content/_Message", message);
+		}
+
 		private Container GetContainer(int containerId) {
 			Container container = _rolForContext.Containers.Find(containerId);
 			if (container == null) {
