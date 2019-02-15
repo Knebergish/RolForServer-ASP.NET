@@ -6,8 +6,7 @@ using System.Linq;
 
 namespace RolForServer.Models {
 	public sealed class RolForContext : DbContext {
-		public DbSet<Forum> Forums { get; set; }
-		public DbSet<Topic> Topics { get; set; }
+		public DbSet<Container> Containers { get; set; }
 		public DbSet<Message> Messages { get; set; }
 		public DbSet<News> News { get; set; }
 		public DbSet<User> Users { get; set; }
@@ -15,7 +14,7 @@ namespace RolForServer.Models {
 		public override int SaveChanges() {
 			ChangeTracker.DetectChanges();
 
-			UpdateUpdatedProperty<Forum>();
+			UpdateUpdatedProperty<Container>();
 			UpdateUpdatedProperty<Message>();
 			UpdateUpdatedProperty<News>();
 			UpdateUpdatedProperty<User>();
@@ -25,7 +24,6 @@ namespace RolForServer.Models {
 
 		protected override void OnModelCreating(DbModelBuilder builder) {
 			builder.HasDefaultSchema("public");
-			builder.Entity<Forum>().ToTable("Forums");
 		}
 
 		private void UpdateUpdatedProperty<T>() where T : class {

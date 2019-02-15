@@ -1,0 +1,21 @@
+﻿@using RolForServer.Models
+@model RolForServer.Models.Container
+
+<div id="breadcrumb">
+	@{
+		List<Container> containers = new List<Container>();
+		Container parent = Model;
+		containers.Add(parent);
+		while (parent != null && parent.Id != 0) {
+			parent = RolForContext.Containers.Find(parent.ParentId);
+			containers.Add(parent);
+		}
+		containers.Reverse();
+	}
+	@foreach (Container con in containers) {
+		<a href="@Url.Action("Container", "Home", new {containerId = con.Id})" class="breadcrumb-item blue-link">
+			@Html.Raw(con.Title)
+		</a>
+		<span class="breadcrumb-item">›</span>
+	}
+</div>

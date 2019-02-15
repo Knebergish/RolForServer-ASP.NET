@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>@ViewBag.Topic.Title</title>
+	<title>@ViewBag.Container.Title</title>
 	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/toolbar/toolbar.css" rel="stylesheet" type="text/css">
@@ -46,26 +46,9 @@
 		
 		<div id="primary">
 			<div id="content">
-				<div id="forum">
-					<h1 id="entry-title">@ViewBag.Topic.Title</h1>
-					<div id="breadcrumb">
-						<a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
-							Форумы
-						</a>
-						<span class="breadcrumb-item">›</span>
-						<span class="breadcrumb-item">
-							<a href="@Url.Action("Topics", "Home", new {forumId = ViewBag.Forum.Id})" class="breadcrumb-item blue-link">
-								@ViewBag.Forum.Title
-							</a>
-						</span>
-						<span class="breadcrumb-item">›</span>
-						<span class="breadcrumb-item">
-							<a href="@Url.Action("Messages", "Home", new {topicId = ViewBag.Topic.Id})" class="breadcrumb-item blue-link">
-								@ViewBag.Topic.Title
-							</a>
-						</span>
-						<span class="breadcrumb-item">›</span>
-					</div>
+				<div id="container">
+					<h1 id="entry-title">@ViewBag.Container.Title</h1>
+					@Html.Partial("Content/_ContainerBreadcrumb", (Container) ViewBag.Container)
 					<div id="messages">
 						@foreach (Message message in ViewBag.Messages) {
 							<div class="message">

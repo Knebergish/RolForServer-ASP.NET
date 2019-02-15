@@ -1,0 +1,63 @@
+#containers {
+	padding: 50px 50px;
+}
+
+#containers #containers-list {
+	--container-preview-image-size: 100px;
+	width: 100%;
+	padding: 0;
+
+	color: #555555;
+}
+
+#containers #containers-list .container {
+	display: flex;
+	padding: 10px;
+	min-height: var(--container-preview-image-size);
+	background-color: #fbfbfb;
+	border: 1px solid #dddddd;
+	margin-bottom: 10px;
+}
+
+#containers #containers-list .container .container-preview-image {
+	float: left;
+	width: var(--container-preview-image-size);
+	height: var(--container-preview-image-size);
+	margin-right: 10px;
+	border: 1px solid #dddddd;
+}
+
+#containers #containers-list .container .container-about {
+	/*height: 100%;*/
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+#containers #containers-list .container .container-about .container-title {
+	font-size: 18px;
+	width: 100%;
+	float: left;
+}
+
+#containers #containers-list .container .container-about .container-description {
+	padding-top: 5px;
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+}
+
+#containers #containers-list .container .container-about .container-meta {
+	margin-top: auto;
+}
+
+#containers #containers-list .container .container-about .container-meta .container-author {
+	font-size: 12px;
+	float: left;
+}
+
+#containers #containers-list .container .container-about .container-meta .container-freshness {
+	font-size: 12px;
+	float: right;
+}

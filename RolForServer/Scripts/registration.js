@@ -35,7 +35,7 @@
 			errorCount++;
 			setTimeout(hideInvalidCredentialsLabel, 3000);
 		} else {
-			document.location.href = "/Home/Forums";
+			document.location.href = "/Home/Index";
 		}
 
 		event.preventDefault();

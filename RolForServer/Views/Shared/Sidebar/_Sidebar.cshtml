@@ -5,11 +5,11 @@
 		@Html.Partial("Sidebar/_Login")
 		<hr>
 		@Html.Partial("Sidebar/_MenuItem", new ViewDataDictionary {
-			{"Url", Url.Action("Forums", "Home")}, {"Text", "Форумы"}
+			{"Url", Url.Action("Container", "Home")}, {"Text", "Форумы"}
 		})
 		<hr>
 		@Html.Partial("Sidebar/_MenuItem", new ViewDataDictionary {
-			{"Url", Url.Action("Forum", "Home", new {id = 0})}, {"Text", "Какой-то форум"}
+			{"Url", Url.Action("Container", "Home", new {containerId = 0})}, {"Text", "Какой-то форум"}
 		})
 		<hr>
 		@Html.Partial("Sidebar/_MenuItem", new ViewDataDictionary {

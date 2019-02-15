@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>@ViewBag.Forum.Title</title>
+	<title>@Html.Raw(ViewBag.Parent.Title)</title>
 	<link href="/Content/CSS/layout.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/style.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/toolbar/toolbar.css" rel="stylesheet" type="text/css">
@@ -12,7 +12,7 @@
 	<link href="/Content/CSS/toolbar/menu.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/sidebar/sidebar.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/sidebar/login-widget.css" rel="stylesheet" type="text/css">
-	<link href="/Content/CSS/content/forums-list.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/content/containers.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/footer.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/fonts.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/to-top-button.css" rel="stylesheet" type="text/css">
@@ -44,49 +44,57 @@
 
 		<div id="primary">
 			<div id="content">
-				<div id="forums">
-					<h1 id="entry-title">@ViewBag.Forum.Title</h1>
-					<div id="breadcrumb">
-						<a href="@Url.Action("Forums", "Home")" class="breadcrumb-item blue-link">
-							Форумы
-						</a>
-						<span class="breadcrumb-item">›</span>
-						<a href="@Url.Action("Topics", "Home", new {forumId = ViewBag.Forum.Id})" class="breadcrumb-item blue-link">
-							@ViewBag.Forum.Title
-						</a>
-						<span class="breadcrumb-item">›</span>
-					</div>
-					<div id="forums-list">
-						@foreach (Topic topic in ViewBag.Topics) {
-							<div class="forum">
-								<a href="@Url.Action("Messages", "Home", new {topicId = topic.Id})">
-									<img src="/Content/Images/Topics/@Html.Raw(topic.ImageName)"
-										class="forum-preview-image" alt="topic_preview">
+				<div id="containers">
+					<h1 id="entry-title">@Html.Raw(ViewBag.Parent.Title)</h1>
+					@Html.Partial("Content/_ContainerBreadcrumb", (Container) ViewBag.Parent)
+					<div id="containers-list">
+						@foreach (Container con in ViewBag.Children) {
+							<div class="container">
+								<a href="@Url.Action("Container", "Home", new {containerId = con.Id})">
+									<img src="/Content/Images/Containers/@Html.Raw(con.ImageName)"
+										class="container-preview-image" alt="container_preview">
 								</a>
-								<div class="forum-about">
-									<div class="forum-title">
-										<a href="@Url.Action("Messages", "Home", new {topicId = topic.Id})" class="blue-link">
-											@Html.Raw(topic.Title)
+								<div class="container-about">
+									<div class="container-title">
+										<a href="@Url.Action("Container", "Home", new {containerId = con.Id})" class="blue-link">
+											@Html.Raw(con.Title)
 										</a>
 									</div>
-									<div class="forum-description">
-										@Html.Raw(topic.Description)
+									<div class="container-description">
+										@Html.Raw(con.Description)
 									</div>
-									<div class="forum-meta">
-										<div class="forum-author">
-											Создатель:
-											<br>
+									<div class="container-meta">
+										<div class="container-author">
+											Создатель:<br>
 											<a href="" class="blue-link">
-												@Html.Raw(RolForContext.Users.Find(topic.AuthorId)?.Login)
+												@Html.Raw(RolForContext.Users.Find(con.AuthorId)?.Login)
 											</a>
 										</div>
-										<div class="forum-freshness">
-											Свежесть:
-											<br>
+										<div class="container-freshness">
+											Свежесть:<br>
 											<a href="" class="blue-link">
 												@{
-													var dateTime = RolForContext.Messages.Where(message => message.TopicId == topic.Id).Select(input => input.Date).Max();
-													@Html.Raw(dateTime.ToString(DateFormat.DateFormatString))
+													List<Container> cons = new List<Container>();
+													List<Message> mess = new List<Message>();
+													cons.Add(con);
+
+													while (cons.Count != 0) {
+														var par = cons[0];
+														cons.RemoveAt(0);
+
+														var children = RolForContext.Containers.Where(c => c.ParentId == par.Id);
+														if (!children.Any()) {
+															var mess2 = RolForContext.Messages.Where(m => m.ContainerId == par.Id);
+															if (mess2.Any()) {
+																mess.Add(mess2.OrderBy(m => m.Date).First());
+															}
+														}
+														else {
+															cons.AddRange(children);
+														}
+													}
+													var maxDate = mess.Max(m => m.Date);
+													@Html.Raw(maxDate.ToString(DateFormat.DateFormatString))
 												}
 											</a>
 										</div>

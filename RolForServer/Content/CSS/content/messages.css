@@ -2,33 +2,33 @@
 	--message-user-info-width: 200px;
 }
 
-#forum {
+#container {
 	padding: 50px 50px;
 }
 
-#forum #messages {
+#container #messages {
 	border: 1px solid #dddddd;
 	margin-bottom: 15px;
 }
 
-#forum #messages .message {
+#container #messages .message {
 	border-top: 1px solid #dddddd;
 }
 
-#forum #messages .message .message-header {
+#container #messages .message .message-header {
 	line-height: 30px;
 	padding-left: 10px;
 
 	background-color: #f4f4f4;
 }
 
-#forum #messages .message .message-body {
+#container #messages .message .message-body {
 	overflow: hidden;
 
 	background-color: #fbfbfb;
 }
 
-#forum #messages .message .message-body .message-user-info {
+#container #messages .message .message-body .message-user-info {
 	float: left;
 	width: var(--message-user-info-width);
 	padding: 10px;
@@ -36,21 +36,21 @@
 	text-align: center;
 }
 
-#forum #messages .message .message-body .message-user-info .message-user-name {
+#container #messages .message .message-body .message-user-info .message-user-name {
 	display: block;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
-#forum #messages .message .message-body .message-user-info .user-avatar {
+#container #messages .message .message-body .message-user-info .user-avatar {
 	height: 200px;
 	width: 200px;
 }
 
-#forum #messages .message .message-body .message-user-info .user-description {
+#container #messages .message .message-body .message-user-info .user-description {
 }
 
-#forum #messages .message .message-body .message-user-info .user-description .spoiler-button {
+#container #messages .message .message-body .message-user-info .user-description .spoiler-button {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
@@ -60,7 +60,7 @@
 	text-align: center;
 }
 
-#forum #messages .message .message-body .message-user-info .user-description .spoiler-text {
+#container #messages .message .message-body .message-user-info .user-description .spoiler-text {
 	height: 0;
 	overflow: hidden;
 
@@ -70,7 +70,7 @@
 	transition: height 1s;
 }
 
-#forum #messages .message .message-body .message-content {
+#container #messages .message .message-body .message-content {
 	margin-left: calc(var(--message-user-info-width) + 20px);
 	padding: 10px;
 
