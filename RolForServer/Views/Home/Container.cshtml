@@ -93,8 +93,10 @@
 															cons.AddRange(children);
 														}
 													}
-													var maxDate = mess.Max(m => m.Date);
-													@Html.Raw(maxDate.ToString(DateFormat.DateFormatString))
+													if (mess.Any()) {
+														var maxDate = mess.Max(m => m.Date);
+														@Html.Raw(maxDate.ToString(DateFormat.DateFormatString))
+													}
 												}
 											</a>
 										</div>
