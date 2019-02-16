@@ -1,5 +1,4 @@
 using System;
-using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -46,12 +45,21 @@ namespace RolForServer.Controllers.Auth {
 
 		public User CurrentUser {
 			get {
-				if (_currentUser == null) {
-					object cookie = HttpContext.Current.Request.Cookies[AuthCookieName]?.Value;
-					if (cookie == null || string.IsNullOrEmpty(cookie.ToString())) return _currentUser;
+				if (_currentUser != null) 
+					return _currentUser;
+
+				object cookie = HttpContext.Current.Request.Cookies[AuthCookieName]?.Value;
+				if (cookie == null || string.IsNullOrEmpty(cookie.ToString())) 
+					return null;
+
+				try {
 					var ticket = FormsAuthentication.Decrypt(cookie.ToString());
-					int id = int.Parse(ticket.Name);
+					// ReSharper disable once PossibleNullReferenceException
+					var id = int.Parse(ticket.Name);
 					_currentUser = _rolForContext.Users.First(user => user.Id == id);
+				}
+				catch (Exception) {
+					HttpContext.Current.Request.Cookies.Remove(AuthCookieName);
 				}
 
 				return _currentUser;
