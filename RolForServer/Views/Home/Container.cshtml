@@ -74,28 +74,20 @@
 											Свежесть:<br>
 											<a href="" class="blue-link">
 												@{
-													List<Container> cons = new List<Container>();
-													List<Message> mess = new List<Message>();
-													cons.Add(con);
-
-													while (cons.Count != 0) {
-														var par = cons[0];
-														cons.RemoveAt(0);
-
-														var children = RolForContext.Containers.Where(c => c.ParentId == par.Id);
-														if (!children.Any()) {
-															var mess2 = RolForContext.Messages.Where(m => m.ContainerId == par.Id);
-															if (mess2.Any()) {
-																mess.Add(mess2.OrderBy(m => m.Date).First());
-															}
-														}
-														else {
-															cons.AddRange(children);
-														}
-													}
-													if (mess.Any()) {
-														var maxDate = mess.Max(m => m.Date);
-														@Html.Raw(maxDate.ToString(DateFormat.DateFormatString))
+													DateTime? maxDate1 = RolForContext.Database.SqlQuery<DateTime?>(
+														"with recursive leaves (Id, ParentId) as (" +
+														"	select c1.\"Id\", c1.\"ParentId\"" +
+														"	from \"Containers\" c1 where c1.\"Id\" = @p0" +
+														"	union" +
+														"	select c2.\"Id\", c2.\"ParentId\"" +
+														"	from \"Containers\" c2 inner join leaves on (leaves.Id = c2.\"ParentId\"))" +
+														"select max(\"Date\") from \"Messages\"" +
+														"where \"ContainerId\" in (select Id from leaves)",
+														con.Id).Single();
+													
+													if (maxDate1 != null) {
+														DateTime dt = (DateTime) maxDate1;
+														@Html.Raw(dt.ToString(DateFormat.DateFormatString))
 													}
 												}
 											</a>
