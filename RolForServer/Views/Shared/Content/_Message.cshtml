@@ -4,6 +4,7 @@
 @{
 	var user = UsersRepository.Get(Model.UserId);
 }
+<div id="@Html.Raw("message-" + Model.Id)" class="message-anchor"></div>
 <div class="message">
 	<div class="message-header">
 		@Html.Raw(Model.Date.ToString(DateFormat.DateFormatString)) в @Html.Raw(Model.Date.ToString(DateFormat.TimeFormatString))

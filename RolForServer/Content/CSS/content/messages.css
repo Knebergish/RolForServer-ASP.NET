@@ -11,6 +11,12 @@
 	margin-bottom: 15px;
 }
 
+#container #messages .message-anchor {
+	padding-top: var(--toolbar-height);
+	margin-top: calc(0 - var(--toolbar-height));
+	visibility: hidden;
+}
+
 #container #messages .message {
 	border-top: 1px solid #dddddd;
 }
