@@ -16,6 +16,7 @@
 	<link href="/Content/CSS/footer.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/fonts.css" rel="stylesheet" type="text/css">
 	<link href="/Content/CSS/to-top-button.css" rel="stylesheet" type="text/css">
+	<link href="/Content/CSS/user-info.css" rel="stylesheet" type="text/css">
 
 	<link href="/favicon.ico" rel="shortcut icon" runat="server" type="image/ico"/>
 </head>
@@ -26,7 +27,7 @@
 
 	<div id="wrapper">
 		@Html.Partial("Sidebar/_Sidebar")
-		
+
 		<div id="primary">
 			<div id="content">
 				<div id="newsletter">
@@ -37,7 +38,8 @@
 									@Html.Raw(news.Title)
 								</div>
 								<div class="news-meta">
-									@Html.Raw(news.Date.ToString(DateFormat.DateFormatString + " " + DateFormat.TimeFormatString)) 
+									@Html.Raw(news.Date.ToString(DateFormat.DateFormatString + " " + DateFormat.TimeFormatString))
+									@Html.Raw(" ")
 									@Html.Raw(RolForContext.Users.Find(news.AuthorId)?.Name)
 								</div>
 							</div>
@@ -49,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		@Html.Partial("Footer/_Footer")
 	</div>
 	<a id="to-top-button" title="Наверх">↑</a>

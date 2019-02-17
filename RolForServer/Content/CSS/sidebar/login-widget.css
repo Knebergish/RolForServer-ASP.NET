@@ -43,6 +43,20 @@
 	color: rgb(85, 85, 85);
 }
 
+#login #login-form fieldset .checkbox-wrapper {
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+}
+
+#login #login-form fieldset .checkbox-wrapper .checkbox {
+	margin: 0 5px 0 0;
+}
+
+#login #login-form fieldset .checkbox-wrapper .label {
+	color: #ffffff;
+}
+
 #login #login-form fieldset .submit-wrapper #login-register-link {
 	height: 100%;
 	display: flex;
@@ -68,47 +82,6 @@
 	width: 100%;
 	text-align: center;
 	color: red;
-}
-
-#login #login-widget {
-	--login-widget-avatar-size: 70px;
-
-	padding: 15px;
-
-	font-size: 14px;
-}
-
-#login #login-widget ul {
-	margin: 0;
-	padding: 0;
-
-	list-style: none;
-}
-
-#login #login-widget ul li {
-	position: relative;
-	margin-left: calc(var(--login-widget-avatar-size) + 20px);
-	word-wrap: break-word;
-}
-
-#login #login-widget .user-info-avatar {
-	position: absolute;
-	width: var(--login-widget-avatar-size);
-	height: var(--login-widget-avatar-size);
-}
-
-#login #login-widget .user-name {
-	height: 18px;
-}
-
-#login #login-widget .user-role {
-	display: block;
-	height: 18px;
-	padding-bottom: 10px;
-	line-height: 23px;
-
-	color: #a0a5aa;
-	font-size: 11px;
 }
 
 #login-page {

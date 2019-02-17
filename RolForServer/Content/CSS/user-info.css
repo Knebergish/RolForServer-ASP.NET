@@ -1,0 +1,45 @@
+.user-info {
+	--user-info-avatar-size: 70px;
+	position: relative;
+	display: flex;
+	padding: 15px;
+
+	font-size: 14px;
+}
+
+.user-info .user-info-about {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-left: 15px;
+}
+
+.user-info .user-info-name-container {
+	word-wrap: break-word;
+}
+
+.user-info .user-info-role-container {
+}
+
+.user-info .user-info-logout-container {
+	margin-top: auto;
+}
+
+.user-info .user-avatar {
+	width: var(--user-info-avatar-size);
+	height: var(--user-info-avatar-size);
+}
+
+.user-info .user-name {
+	height: 18px;
+}
+
+.user-info .user-role {
+	display: block;
+	height: 18px;
+	padding-bottom: 10px;
+	line-height: 23px;
+
+	color: #a0a5aa;
+	font-size: 11px;
+}

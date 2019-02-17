@@ -13,6 +13,10 @@
 					<label class="label">Пароль: </label>
 					<input type="password" id="login-password-input" name="password" value="" class="input">
 				</div>
+				<div class="checkbox-wrapper">
+					<input type="checkbox" class="checkbox" id="rememberMe">
+					<label class="label">Запомнить меня</label>
+				</div>
 				<div class="submit-wrapper">
 					<div id="login-register-link">
 						<a href="@Url.Action("Register", "Auth")" class="gray-link">Регистрация</a>
@@ -25,21 +29,6 @@
 		<script src="/Scripts/login.js"></script>
 	}
 	else {
-		<div id="login-widget">
-			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-avatar" alt="user-info-avatar">
-			<ul>
-				<li>
-					<a href="" class="cyan-link user-name">
-						<div>@Html.Raw(User.Name)</div>
-					</a>
-				</li>
-				<li>
-					<span class="user-role">@Html.Raw(User.Role.GetLocalizedName())</span>
-				</li>
-				<li>
-					<a href="@Url.Action("Logout", "Auth")" class="cyan-link">Выход</a>
-				</li>
-			</ul>
-		</div>
+		@Html.Partial("_UserInfo")
 	}
 </div>

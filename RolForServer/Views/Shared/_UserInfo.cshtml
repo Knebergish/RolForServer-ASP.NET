@@ -1,0 +1,18 @@
+﻿@using RolForServer.Controllers.Auth
+
+<div class="user-info">
+	<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-avatar" alt="user-avatar">
+	<div class="user-info-about">
+		<div class="user-info-name-container">
+			<a href="" class="cyan-link user-name">
+				@Html.Raw(User.Name)
+			</a>
+		</div>
+		<div class="user-info-role-container">
+			<span class="user-role">@Html.Raw(User.Role.GetLocalizedName())</span>
+		</div>
+		<div class="user-info-logout-container">
+			<a href="@Url.Action("Logout", "Auth")" class="cyan-link">Выход</a>
+		</div>
+	</div>
+</div>

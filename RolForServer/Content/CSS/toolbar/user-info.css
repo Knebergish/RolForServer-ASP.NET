@@ -1,44 +1,10 @@
-#toolbar .user-info .user-info-popup {
-	min-width: 200px;
-	padding: 15px 30px 15px 15px;
-}
-
-#toolbar .user-info .user-info-min-avatar {
+#toolbar .user-info-tool .user-info-tool-min-avatar {
 	width: calc(var(--toolbar-height) - 10px);
 	height: calc(var(--toolbar-height) - 10px);
 	padding-bottom: 5px;
 	vertical-align: middle;
 }
 
-#toolbar .user-info .user-info-popup ul {
-	margin: 0;
-	padding: 0;
-
-	list-style: none;
-	white-space: nowrap;
-}
-
-#toolbar .user-info .user-info-popup ul li {
-	position: relative;
-	margin-left: calc(var(--avatar-size) + 20px);
-}
-
-#toolbar .user-info .user-info-popup .user-info-avatar {
-	position: absolute;
-	width: var(--avatar-size);
-	height: var(--avatar-size);
-}
-
-#toolbar .user-info .user-info-popup .user-name {
-	display: block;
-	height: 18px;
-}
-
-#toolbar .user-info .user-info-popup .user-role {
-	display: block;
-	height: 18px;
-	padding-bottom: 10px;
-
-	color: #a0a5aa;
-	font-size: 11px;
+#toolbar .user-info-tool .user-info-tool-popup {
+	min-width: 300px;
 }

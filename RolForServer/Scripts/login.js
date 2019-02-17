@@ -1,6 +1,7 @@
 ﻿(function () {
 	const login = document.getElementById('login-username-input');
 	const password = document.getElementById('login-password-input');
+	const rememberMe = document.getElementById('rememberMe');
 	const button = document.getElementById('login-submit-button');
 	button.onclick = validate;
 
@@ -19,6 +20,7 @@
 				setTimeout(hideInvalidCredentialsLabel, 3000);
 			}
 			else {
+				parameters += "&rememberMe=" + rememberMe.checked;
 				document.location.href = "/Auth/Authenticate?" + parameters;
 			}
 		});

@@ -1,3 +1,8 @@
+#toolbar .menu .popup {
+	line-height: 23px;
+	padding: 0 10px;
+}
+
 #toolbar .menu .popup ul {
 	list-style: none;
 	white-space: nowrap;

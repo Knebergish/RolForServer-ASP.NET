@@ -20,6 +20,12 @@ namespace RolForServer.Controllers.Auth {
 				Logout();
 			}
 
+			SaveAuthCookie(user, rememberMe);
+
+			_currentUser = user;
+		}
+
+		private static void SaveAuthCookie(User user, bool rememberMe) {
 			DateTime expiresDate = DateTime.Now.AddMinutes(30);
 			if (rememberMe)
 				expiresDate = expiresDate.AddDays(10);
@@ -32,8 +38,6 @@ namespace RolForServer.Controllers.Auth {
 			string encryptedTicket = FormsAuthentication.Encrypt(ticket);
 
 			SetValue(AuthCookieName, encryptedTicket, expiresDate);
-
-			_currentUser = user;
 		}
 
 		public void Logout() {
@@ -57,6 +61,7 @@ namespace RolForServer.Controllers.Auth {
 					// ReSharper disable once PossibleNullReferenceException
 					var id = int.Parse(ticket.Name);
 					_currentUser = _rolForContext.Users.First(user => user.Id == id);
+					SaveAuthCookie(_currentUser, ticket.IsPersistent);
 				}
 				catch (Exception) {
 					HttpContext.Current.Request.Cookies.Remove(AuthCookieName);

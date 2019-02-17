@@ -18,7 +18,7 @@ namespace RolForServer.Controllers {
 			return View();
 		}
 
-		public ActionResult Authenticate(string login, string password) {
+		public ActionResult Authenticate(string login, string password, bool rememberMe) {
 			if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password)) {
 				return RedirectToAction("Login", new {errorMessage = "Что-то пусто."});
 			}
@@ -28,7 +28,7 @@ namespace RolForServer.Controllers {
 				return RedirectToAction("Login", new {errorMessage = "Что-то не так."});
 			}
 
-			_IAuthenticationService.Login(user, false);
+			_IAuthenticationService.Login(user, rememberMe);
 
 			return RedirectToAction("Index", "Home");
 		}

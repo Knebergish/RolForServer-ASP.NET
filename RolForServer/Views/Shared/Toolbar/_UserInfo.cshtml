@@ -1,24 +1,11 @@
-﻿@using RolForServer.Controllers.Auth
-
-<div class="toolbar-item toolbar-tool-right popup-parent user-info">
+﻿<div class="toolbar-tool toolbar-tool-right popup-parent user-info-tool">
 	@if (IsAuthenticated) {
 		<a href="" class="cyan-link">
 			@Html.Raw(User.Name)
-			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-min-avatar" alt="user-info-min-avatar">
+			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-tool-min-avatar" alt="user-info-min-avatar">
 		</a>
-		<div class="popup user-info-popup">
-			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-avatar" alt="user-info-avatar">
-			<ul>
-				<li>
-					<a href="" class="cyan-link user-name">@Html.Raw(User.Login)</a>
-				</li>
-				<li>
-					<span class="user-role">@Html.Raw(User.Role.GetLocalizedName())</span>
-				</li>
-				<li>
-					<a href="@Url.Action("Logout", "Auth")" class="cyan-link">Выход</a>
-				</li>
-			</ul>
+		<div class="popup user-info-tool-popup">
+			@Html.Partial("_UserInfo")
 		</div>
 	}
 	else {
