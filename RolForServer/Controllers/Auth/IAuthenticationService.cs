@@ -1,4 +1,5 @@
 using RolForServer.Models;
+using RolForServer.Models.Entities;
 
 namespace RolForServer.Controllers.Auth {
 	public interface IAuthenticationService {

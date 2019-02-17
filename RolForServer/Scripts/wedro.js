@@ -71,8 +71,9 @@
 			const url_string = window.location.href;
 			const url = new URL(url_string);
 			const containerId = url.searchParams.get("containerId");
+			button.disabled = true;
 
-			ajax("/Home/AddMessage",
+			ajax("/Messages/Add",
 				"containerId=" + containerId + "&text=" + text,
 				function (html) {
 					htmlTab.textContent = '';
@@ -83,6 +84,7 @@
 					updateSpoilers(document);
 					htmlTab.innerHTML = '';
 					visualTab.innerHTML = '';
+					button.disabled = false;
 				});
 		}
 

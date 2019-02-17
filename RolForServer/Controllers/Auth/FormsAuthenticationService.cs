@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using RolForServer.Models;
+using RolForServer.Models.Entities;
 
 namespace RolForServer.Controllers.Auth {
 	public class FormsAuthenticationService : IAuthenticationService {

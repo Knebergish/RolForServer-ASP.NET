@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using RolForServer.Controllers.Auth;
 using RolForServer.Models;
+using RolForServer.Models.Entities;
 
 namespace RolForServer.Controllers {
 	public class AuthController : ControllerBase {
@@ -23,7 +24,7 @@ namespace RolForServer.Controllers {
 				return RedirectToAction("Login", new {errorMessage = "Что-то пусто."});
 			}
 
-			User user = _rolForContext.Users.SingleOrDefault(u => u.Login.Equals(login));
+			User user = UsersRepository.GetByLogin(login);
 			if (user == null || !user.Password.Equals(password)) {
 				return RedirectToAction("Login", new {errorMessage = "Что-то не так."});
 			}
@@ -38,7 +39,7 @@ namespace RolForServer.Controllers {
 				return "Что-то пусто.";
 			}
 
-			User user = _rolForContext.Users.SingleOrDefault(u => u.Login.Equals(login));
+			User user = UsersRepository.GetByLogin(login);
 			if (user == null || !user.Password.Equals(password)) {
 				return "Что-то не так.";
 			}

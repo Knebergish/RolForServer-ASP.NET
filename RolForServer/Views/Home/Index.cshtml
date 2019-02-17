@@ -1,4 +1,5 @@
 ﻿@using RolForServer.Models
+@using RolForServer.Models.Entities
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +41,7 @@
 								<div class="news-meta">
 									@Html.Raw(news.Date.ToString(DateFormat.DateFormatString + " " + DateFormat.TimeFormatString))
 									@Html.Raw(" ")
-									@Html.Raw(RolForContext.Users.Find(news.AuthorId)?.Name)
+									@Html.Raw(UsersRepository.Get(news.AuthorId)?.Name)
 								</div>
 							</div>
 							<div class="news-content">

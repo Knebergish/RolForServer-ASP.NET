@@ -1,6 +1,7 @@
 using System.Web;
 using System.Web.Mvc;
 using RolForServer.Models;
+using RolForServer.Models.Entities;
 
 namespace RolForServer.Controllers.Auth {
 	public class AuthenticateAttribute : AuthorizeAttribute {

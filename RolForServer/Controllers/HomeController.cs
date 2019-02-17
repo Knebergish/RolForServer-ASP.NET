@@ -1,75 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using RolForServer.Controllers.Auth;
-using RolForServer.Models;
+﻿using System.Web.Mvc;
 
 namespace RolForServer.Controllers {
 	public class HomeController : ControllerBase {
 		public ActionResult Index() {
-			ViewBag.News = _rolForContext.News;
+			ViewBag.News = NewsRepository.GetAll();
 			return View();
-		}
-
-		[AuthenticateAttribute(UserRoles.User)]
-		public ActionResult Container(int containerId = 0) {
-			var container = GetContainer(containerId);
-			int childrenCount = _rolForContext.Containers.Count(con => con.ParentId == containerId);
-			if (childrenCount == 0) {
-				return Messages(containerId);
-			}
-
-			ViewBag.Parent = container;
-			ViewBag.Children = _rolForContext.Containers
-				.Where(con => con.ParentId == containerId)
-				.OrderBy(con => con.Id);
-			return View();
-		}
-
-		[AuthenticateAttribute(UserRoles.User)]
-		public ActionResult Messages(int containerId = 0) {
-			var container = GetContainer(containerId);
-			int childrenCount = _rolForContext.Containers.Count(con => con.ParentId == containerId);
-			if (childrenCount != 0) {
-				throw new Exception($"Контейнер с id = {containerId} не может содержать сообщений," +
-									" т.к. является родителем для других контейнеров.");
-			}
-
-			ViewBag.Container = container;
-			ViewBag.Messages = _rolForContext.Messages
-				.Where(message => message.ContainerId == containerId)
-				.OrderBy(message => message.Date);
-			return View("Messages");
-		}
-
-		[ValidateInput(false)]
-		[AuthenticateAttribute(UserRoles.User)]
-		public ActionResult AddMessage(int containerId, string text) {
-			GetContainer(containerId);
-			int childrenCount = _rolForContext.Containers.Count(con => con.ParentId == containerId);
-			if (childrenCount != 0) {
-				throw new Exception($"Контейнер с id = {containerId} не может содержать сообщений," +
-									" т.к. является родителем для других контейнеров.");
-			}
-
-			Message message = new Message() {
-				UserId = CurrentUser.Id,
-				ContainerId = containerId,
-				Date = DateTime.Now,
-				Text = text
-			};
-			message = _rolForContext.Messages.Add(message);
-			_rolForContext.SaveChanges();
-			return PartialView("Content/_Message", message);
-		}
-
-		private Container GetContainer(int containerId) {
-			Container container = _rolForContext.Containers.Find(containerId);
-			if (container == null) {
-				throw new Exception($"Контейнера с id = {containerId} не существует!");
-			}
-
-			return container;
 		}
 	}
 }

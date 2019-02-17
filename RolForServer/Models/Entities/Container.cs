@@ -1,4 +1,4 @@
-namespace RolForServer.Models {
+namespace RolForServer.Models.Entities {
 	public class Container {
 		public int Id { get; set; }
 		public int? ParentId { get; set; }

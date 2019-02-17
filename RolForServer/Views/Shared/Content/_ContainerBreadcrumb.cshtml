@@ -1,19 +1,19 @@
-﻿@using RolForServer.Models
-@model RolForServer.Models.Container
+﻿@using RolForServer.Models.Entities
+@model RolForServer.Models.Entities.Container
 
 <div id="breadcrumb">
 	@{
 		List<Container> containers = new List<Container>();
 		Container parent = Model;
 		containers.Add(parent);
-		while (parent != null && parent.Id != 0) {
-			parent = RolForContext.Containers.Find(parent.ParentId);
+		while (parent.Id != 0 && parent.ParentId != null) {
+			parent = ContainersRepository.Get((int) parent.ParentId);
 			containers.Add(parent);
 		}
 		containers.Reverse();
 	}
 	@foreach (Container con in containers) {
-		<a href="@Url.Action("Container", "Home", new {containerId = con.Id})" class="breadcrumb-item blue-link">
+		<a href="@Url.Action("Show", "Containers", new {containerId = con.Id})" class="breadcrumb-item blue-link">
 			@Html.Raw(con.Title)
 		</a>
 		<span class="breadcrumb-item">›</span>

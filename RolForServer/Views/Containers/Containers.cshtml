@@ -1,4 +1,5 @@
 ﻿@using RolForServer.Models
+@using RolForServer.Models.Entities
 
 <!DOCTYPE HTML>
 <html>
@@ -51,13 +52,13 @@
 					<div id="containers-list">
 						@foreach (Container con in ViewBag.Children) {
 							<div class="container">
-								<a href="@Url.Action("Container", "Home", new {containerId = con.Id})">
+								<a href="@Url.Action("Show", "Containers", new {containerId = con.Id})">
 									<img src="/Content/Images/Containers/@Html.Raw(con.ImageName)"
 										class="container-preview-image" alt="container_preview">
 								</a>
 								<div class="container-about">
 									<div class="container-title">
-										<a href="@Url.Action("Container", "Home", new {containerId = con.Id})" class="blue-link">
+										<a href="@Url.Action("Show", "Containers", new {containerId = con.Id})" class="blue-link">
 											@Html.Raw(con.Title)
 										</a>
 									</div>
@@ -68,23 +69,14 @@
 										<div class="container-author">
 											Создатель:<br>
 											<a href="" class="blue-link">
-												@Html.Raw(RolForContext.Users.Find(con.AuthorId)?.Name)
+												@Html.Raw(UsersRepository.Get(con.AuthorId)?.Name)
 											</a>
 										</div>
 										<div class="container-freshness">
 											Свежесть:<br>
 											<a href="" class="blue-link">
 												@{
-													DateTime? maxDate1 = RolForContext.Database.SqlQuery<DateTime?>(
-														"with recursive leaves (Id, ParentId) as (" +
-														"	select c1.\"Id\", c1.\"ParentId\"" +
-														"	from \"Containers\" c1 where c1.\"Id\" = @p0" +
-														"	union" +
-														"	select c2.\"Id\", c2.\"ParentId\"" +
-														"	from \"Containers\" c2 inner join leaves on (leaves.Id = c2.\"ParentId\"))" +
-														"select max(\"Date\") from \"Messages\"" +
-														"where \"ContainerId\" in (select Id from leaves)",
-														con.Id).Single();
+													DateTime? maxDate1 = ContainersRepository.GetFreshness(con.Id);
 													
 													if (maxDate1 != null) {
 														DateTime dt = (DateTime) maxDate1;

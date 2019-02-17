@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using RolForServer.Models.Entities;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 

@@ -1,14 +1,17 @@
 ﻿@using RolForServer.Models
-@model Message
+@model RolForServer.Models.Entities.Message
 
+@{
+	var user = UsersRepository.Get(Model.UserId);
+}
 <div class="message">
 	<div class="message-header">
 		@Html.Raw(Model.Date.ToString(DateFormat.DateFormatString)) в @Html.Raw(Model.Date.ToString(DateFormat.TimeFormatString))
 	</div>
 	<div class="message-body">
 		<div class="message-user-info">
-			<a href="" class="message-user-name blue-link">@Html.Raw(RolForContext.Users.Find(Model.UserId)?.Name)</a>
-			<img src="/Content/Images/Avatars/@Html.Raw(RolForContext.Users.Find(Model.UserId)?.AvatarImageName)"
+			<a href="" class="message-user-name blue-link">@Html.Raw(user?.Name)</a>
+			<img src="/Content/Images/Avatars/@Html.Raw(user?.AvatarImageName)"
 				alt="avatar-image"
 				class="user-avatar">
 			<div class="user-description">
@@ -16,7 +19,7 @@
 					<summary>Описание</summary>
 				</details>
 				<div class="spoiler-text">
-					@Html.Raw(RolForContext.Users.Find(Model.UserId)?.Description)
+					@Html.Raw(user?.Description)
 				</div>
 			</div>
 		</div>

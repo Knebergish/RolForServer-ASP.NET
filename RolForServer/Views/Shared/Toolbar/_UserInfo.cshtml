@@ -1,8 +1,9 @@
 ﻿<div class="toolbar-tool toolbar-tool-right popup-parent user-info-tool">
 	@if (IsAuthenticated) {
+		var user = User;
 		<a href="" class="cyan-link">
-			@Html.Raw(User.Name)
-			<img src="/Content/Images/Avatars/@Html.Raw(User.AvatarImageName)" class="user-info-tool-min-avatar" alt="user-info-min-avatar">
+			@Html.Raw(user.Name)
+			<img src="/Content/Images/Avatars/@Html.Raw(user.AvatarImageName)" class="user-info-tool-min-avatar" alt="user-info-min-avatar">
 		</a>
 		<div class="popup user-info-tool-popup">
 			@Html.Partial("_UserInfo")

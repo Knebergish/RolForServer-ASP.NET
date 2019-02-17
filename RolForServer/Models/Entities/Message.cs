@@ -1,6 +1,6 @@
 using System;
 
-namespace RolForServer.Models {
+namespace RolForServer.Models.Entities {
 	public class Message {
 		public int Id { get; set; }
 		public int ContainerId { get; set; }
