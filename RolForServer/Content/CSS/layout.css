@@ -20,6 +20,8 @@ html, body {
 }
 
 body {
+	padding-top: var(--toolbar-height);
+	
 	background: var(--main-background);
 	background: var(--main-background-image);
 	background-position: center center;
