@@ -37,7 +37,8 @@
 									@Html.Raw(news.Title)
 								</div>
 								<div class="news-meta">
-									@Html.Raw(news.Date) @Html.Raw(RolForContext.Users.Find(news.AuthorId)?.Login)
+									@Html.Raw(news.Date.ToString(DateFormat.DateFormatString + " " + DateFormat.TimeFormatString)) 
+									@Html.Raw(RolForContext.Users.Find(news.AuthorId)?.Name)
 								</div>
 							</div>
 							<div class="news-content">
