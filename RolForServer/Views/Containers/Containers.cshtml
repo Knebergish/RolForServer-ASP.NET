@@ -74,16 +74,29 @@
 										</div>
 										<div class="container-freshness">
 											Свежесть:<br>
-											<a href="" class="blue-link">
-												@{
-													DateTime? maxDate1 = ContainersRepository.GetFreshness(con.Id);
-													
-													if (maxDate1 != null) {
-														DateTime dt = (DateTime) maxDate1;
+
+
+											@{
+												Message lastMessage = ContainersRepository.GetLastMessage(con.Id);
+
+												if (lastMessage != null) {
+													DateTime dt = lastMessage.Date;
+													string url = Url.Action("Show", "Messages", new {containerId = lastMessage.ContainerId});
+													url += Html.Raw("#message-" + lastMessage.Id);
+													<a href="@url" class="blue-link">
 														@Html.Raw(dt.ToString(DateFormat.DateFormatString))
-													}
+													</a>
+@* 														@Html.ActionLink(, *@
+@* 															"Show",  *@
+@* 															"Messages",  *@
+@* 															null, *@
+@* 															null, *@
+@* 															"message-" + lastMessage.Id,  *@
+@* 															new {containerId = lastMessage.ContainerId},  *@
+@* 															new Dictionary<string, object>{{"class", "blue-link"}}) *@
 												}
-											</a>
+											}
+
 										</div>
 									</div>
 								</div>

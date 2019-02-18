@@ -13,7 +13,7 @@
 
 #container #messages .message-anchor {
 	padding-top: var(--toolbar-height);
-	margin-top: calc(0 - var(--toolbar-height));
+	margin-top: calc(0px - var(--toolbar-height));
 	visibility: hidden;
 }
 
