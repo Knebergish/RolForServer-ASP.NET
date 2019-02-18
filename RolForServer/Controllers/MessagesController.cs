@@ -1,7 +1,7 @@
 using System;
+using System.IO;
 using System.Web.Mvc;
 using RolForServer.Controllers.Auth;
-using RolForServer.Models;
 using RolForServer.Models.Entities;
 
 namespace RolForServer.Controllers {
@@ -16,9 +16,19 @@ namespace RolForServer.Controllers {
 		}
 
 		[ValidateInput(false)]
-		[AuthenticateAttribute(UserRoles.User)]
 		public ActionResult Add(int containerId, string text) {
-			ValidateAndGetContainer(containerId);
+			if (!IsAuthenticated || AuthenticationService.CurrentUser.Role < UserRoles.User) {
+				var error = new {Error = "У вас прав нет."};
+				return Json(error, JsonRequestBehavior.AllowGet);
+			}
+
+			try {
+				ValidateAndGetContainer(containerId);
+			}
+			catch (Exception e) {
+				var error = new {Error = e.Message};
+				return Json(error, JsonRequestBehavior.AllowGet);
+			}
 
 			Message message = new Message {
 				UserId = CurrentUser.Id,
@@ -28,7 +38,20 @@ namespace RolForServer.Controllers {
 			};
 			message = MessagesRepository.Add(message);
 			MessagesRepository.SaveChanges();
-			return PartialView("Content/_Message", message);
+			var response = new {Html = ConvertViewToString("Content/_Message", message)};
+			return Json(response, JsonRequestBehavior.AllowGet);
+		}
+		
+		private string ConvertViewToString(string viewName, object model)
+		{
+			ViewData.Model = model;
+			using (StringWriter writer = new StringWriter())
+			{
+				ViewEngineResult vResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+				ViewContext vContext = new ViewContext(ControllerContext, vResult.View, ViewData, new TempDataDictionary(), writer);
+				vResult.View.Render(vContext, writer);
+				return writer.ToString();
+			}
 		}
 
 		private Container ValidateAndGetContainer(int containerId) {

@@ -75,16 +75,21 @@
 
 			ajax("/Messages/Add",
 				"containerId=" + containerId + "&text=" + text,
-				function (html) {
-					htmlTab.textContent = '';
-					const message = document.createElement("Div");
-					message.classList.add('message');
-					message.innerHTML = html;
-					messages.appendChild(message);
-					updateSpoilers(document);
-					htmlTab.innerHTML = '';
-					visualTab.innerHTML = '';
-					button.disabled = false;
+				function (json) {
+					const response = JSON.parse(json);
+					if (response.Error) {
+						alert(response.Error);
+					} else {
+						htmlTab.textContent = '';
+						const message = document.createElement("Div");
+						message.classList.add('message');
+						message.innerHTML = response.Html;
+						messages.appendChild(message);
+						updateSpoilers(document);
+						htmlTab.innerHTML = '';
+						visualTab.innerHTML = '';
+						button.disabled = false;
+					}
 				});
 		}
 
