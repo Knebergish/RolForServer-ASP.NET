@@ -12,9 +12,22 @@ namespace RolForServer.Controllers {
 			_iAuthenticationService = DependencyResolver.Current.GetService<IAuthenticationService>();
 		}
 
-		public ActionResult Login(string errorMessage = "") {
-			ViewBag.ErrorMessage = errorMessage;
+		public ActionResult Login() {
 			return View();
+		}
+
+		public ActionResult Register() {
+			return View(new User());
+		}
+		
+		[HttpPost]
+		public ActionResult Register(User newUser) {
+			newUser.AvatarImageName = "default_avatar.png";
+			newUser.Role = UserRoles.User;
+			var user = UsersRepository.Add(newUser);
+			UsersRepository.SaveChanges();
+			AuthenticationService.Login(user, false);
+			return RedirectToAction("Index", "Home");
 		}
 
 		public ActionResult Authenticate(string login, string password, bool rememberMe) {
@@ -49,17 +62,13 @@ namespace RolForServer.Controllers {
 			}
 		}
 
-		public ActionResult Register() {
-			return View();
-		}
-
 		public ActionResult Logout() {
 			User currentUser = _iAuthenticationService.CurrentUser;
 			if (currentUser != null) {
 				_iAuthenticationService.Logout();
 			}
 
-			return RedirectToAction("Index", "Home");
+			return Redirect(Request.UrlReferrer.ToString());
 		}
 	}
 }

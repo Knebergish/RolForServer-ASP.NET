@@ -1,4 +1,4 @@
-﻿@model RolForServer.Models.Entities.Message
+﻿@model RolForServer.Models.Entities.User
 
 <!DOCTYPE html>
 <html>
@@ -23,18 +23,18 @@
 
 	<div id="wrapper">
 		@Html.Partial("Sidebar/_Sidebar")
-		
+
 		<div id="primary">
 			<div id="content">
 				<div id="registration">
 					<h1 id="entry-title">Регистрация</h1>
-					<form id="registration-form" method="post">
+					@using (Html.BeginForm("Register", "Auth", FormMethod.Post, new {id = "registration-form"})) {
 						<fieldset>
 							<legend>Зарегистрироваться</legend>
 							<div class="input-wrapper">
 								<label class="label">Логин: </label>
 								<div class="input-and-hint">
-									<input type="text" id="registration-login-input" class="input" value="">
+									@Html.TextBoxFor(user => user.Login, "", new {id = "registration-login-input", @class = "input"})
 									<div class="hint-wrapper">
 										<span class="hint tooltip" tooltip-content="Буквы английского алфавита и цифры. Должен начинаться с буквы. Длина от 2 до 16 символов.">
 											i
@@ -45,7 +45,7 @@
 							<div class="input-wrapper">
 								<label class="label">Имя, отображаемое на сайте: </label>
 								<div class="input-and-hint">
-									<input type="text" id="registration-username-input" class="input" value="">
+									@Html.TextBoxFor(user => user.Name, "", new {id = "registration-username-input", @class = "input"})
 									<div class="hint-wrapper">
 										<span class="hint tooltip" tooltip-content="Любые символы. Длина от 2 до 20 символов. Может быть изменено позже.">
 											i
@@ -56,7 +56,7 @@
 							<div class="input-wrapper">
 								<label class="label">Пароль: </label>
 								<div class="input-and-hint">
-									<input type="password" id="registration-password-input" class="input" value="">
+									@Html.PasswordFor(user => user.Password, new {id = "registration-password-input", @class = "input"})
 									<div class="hint-wrapper">
 										<span class="hint tooltip" tooltip-content="Буквы английского алфавита, цифры, знаки препинания, специальные символы. Длина не менее 5 символов.">
 											i
@@ -67,13 +67,13 @@
 							<div class="input-wrapper">
 								<label class="label">Подтверждение пароля: </label>
 								<div class="input-and-hint">
-									<input type="password" id="registration-repeat-password-input" class="input" value="">
+									@Html.Password("test", "", new {id = "registration-repeat-password-input", @class = "input"})
 								</div>
 							</div>
 							<div class="input-wrapper">
 								<label class="label">Почта: </label>
 								<div class="input-and-hint">
-									<input type="text" id="registration-email-input" class="input" value="">
+									@Html.TextBoxFor(user => user.Description, "", new {id = "registration-email-input", @class = "input"})
 									<div class="hint-wrapper">
 										<span class="hint tooltip" tooltip-content="Должна быть действующей (будет использоваться для отправки вам рекламных сообщений и предложений быстро разбогатеть).">
 											i
@@ -82,14 +82,14 @@
 								</div>
 							</div>
 							<div class="submit-wrapper">
-								<button type="button" id="registration-submit-button">Зарегистрироваться</button>
+								<button type="button" type="submit" id="registration-submit-button">Зарегистрироваться</button>
 							</div>
 						</fieldset>
-					</form>
+					}
 				</div>
 			</div>
 		</div>
-		
+
 		@Html.Partial("Footer/_Footer")
 	</div>
 	<a id="to-top-button" title="Наверх">↑</a>

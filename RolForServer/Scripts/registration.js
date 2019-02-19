@@ -34,11 +34,10 @@
 			invalidCredentialsLabel.hidden = false;
 			errorCount++;
 			setTimeout(hideInvalidCredentialsLabel, 3000);
+			event.preventDefault();
 		} else {
-			document.location.href = "/Home/Index";
+			registerForm.submit();
 		}
-
-		event.preventDefault();
 	}
 
 	function hideInvalidCredentialsLabel() {
