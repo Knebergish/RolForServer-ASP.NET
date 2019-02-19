@@ -22,13 +22,11 @@
 }
 
 #pagination {
-	float: left;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: end;
 	margin-bottom: 15px;
 	width: 100%;
-}
-
-#pagination-end {
-	clear: left;
 }
 
 #pagination #pagination-items {
