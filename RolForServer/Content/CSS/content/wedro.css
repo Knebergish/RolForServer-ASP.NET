@@ -92,7 +92,8 @@
 }
 
 #wedro .clear {
-	clear: both;
+	/*noinspection CssInvalidPropertyValue*/
+	clear: inline-end;
 }
 
 #wedro #tabs-wrapper {
