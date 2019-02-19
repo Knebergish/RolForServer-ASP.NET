@@ -28,7 +28,7 @@ namespace RolForServer.Models.Repository {
 				"where \"ContainerId\" in (select Id from leaves)" +
 				"order by \"Date\" desc " +
 				"limit 1",
-				id).Single();
+				id).SingleOrDefault();
 		}
 	}
 }
