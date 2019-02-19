@@ -11,17 +11,19 @@
 	let errorCount = 0;
 
 	function validate() {
-		let parameters = "login=" + login.value + "&password=" + password.value;
-		ajax("/Auth/CheckUser", parameters, function (text) {
-			if (text !== "") {
-				invalidCredentialsLabel.innerHTML = text + "<br>";
+		let parameters = "login=" + login.value
+			+ "&password=" + password.value
+			+ "&rememberMe=" + rememberMe.checked;
+		ajax("/Auth/Authenticate", parameters, function (json) {
+			const response = JSON.parse(json);
+			if (response.Error) {
+				invalidCredentialsLabel.innerHTML = response.Error + "<br>";
 				invalidCredentialsLabel.hidden = false;
 				errorCount++;
 				setTimeout(hideInvalidCredentialsLabel, 3000);
 			}
 			else {
-				parameters += "&rememberMe=" + rememberMe.checked;
-				document.location.href = "/Auth/Authenticate?" + parameters;
+				document.location = response.RedirectURL;
 			}
 		});
 	}

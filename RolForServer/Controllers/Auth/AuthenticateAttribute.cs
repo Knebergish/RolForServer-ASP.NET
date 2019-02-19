@@ -1,6 +1,5 @@
 using System.Web;
 using System.Web.Mvc;
-using RolForServer.Models;
 using RolForServer.Models.Entities;
 
 namespace RolForServer.Controllers.Auth {
@@ -23,6 +22,12 @@ namespace RolForServer.Controllers.Auth {
 		}
 
 		protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext) {
+			var requestUri = filterContext.RequestContext.HttpContext.Request.Url;
+			if (requestUri != null) {
+				HttpCookie cookie = new HttpCookie("RedirectURL", requestUri.ToString());
+				HttpContext.Current.Response.SetCookie(cookie);
+			}
+
 			filterContext.Result = new RedirectResult("/Auth/Login");
 		}
 	}
