@@ -20,8 +20,6 @@ html, body {
 }
 
 body {
-	padding-top: var(--toolbar-height);
-	
 	background: var(--main-background);
 	background: var(--main-background-image);
 	background-position: center center;
@@ -38,6 +36,7 @@ body {
 	width: calc(var(--sidebar-width) + var(--content-width));
 	min-width: calc(var(--sidebar-width) + var(--content-width));
 	position: relative;
+	padding-top: var(--toolbar-height);
 	margin-right: auto;
 	margin-left: auto;
 }
