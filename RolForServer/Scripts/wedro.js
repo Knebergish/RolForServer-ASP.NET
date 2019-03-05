@@ -3,9 +3,11 @@
 	const visualTabIndicator = document.getElementById('visual-tab-indicator');
 	const visualTab = document.getElementById('visual-tab');
 	const htmlTab = document.getElementById('html-tab');
+	let isVisualTab;
 
 	document.addEventListener('DOMContentLoaded',
 		function () {
+			isVisualTab = true;
 			document.getElementById('tabs-switcher').onclick = (function () {
 				swap();
 			});
@@ -28,11 +30,13 @@
 		});
 
 	function selectHTMLTab() {
+		isVisualTab = false;
 		htmlTab.textContent = visualTab.innerHTML;
 		swapTabs(visualTab, htmlTab, visualTabIndicator, htmlTabIndicator);
 	}
 
 	function selectVisualTab() {
+		isVisualTab = true;
 		visualTab.innerHTML = htmlTab.textContent;
 		swapTabs(htmlTab, visualTab, htmlTabIndicator, visualTabIndicator);
 	}
@@ -64,7 +68,9 @@
 	button.onclick = send;
 
 	function send() {
-		selectHTMLTab();
+		if (isVisualTab) {
+			selectHTMLTab();
+		}
 
 		const text = htmlTab.textContent;
 		if (text !== '') {
