@@ -15,6 +15,13 @@
 
 	let errorCount = 0;
 
+	function showError(error) {
+		invalidCredentialsLabel.innerHTML = error;
+		invalidCredentialsLabel.hidden = false;
+		errorCount++;
+		setTimeout(hideInvalidCredentialsLabel, 3000);
+	}
+
 	function validate() {
 		let error = "";
 		if (!/^[a-zA-Z][A-Za-z0-9]{1,16}$/.test(login.value)) {
@@ -30,13 +37,20 @@
 		}
 
 		if (error !== "") {
-			invalidCredentialsLabel.innerHTML = error;
-			invalidCredentialsLabel.hidden = false;
-			errorCount++;
-			setTimeout(hideInvalidCredentialsLabel, 3000);
+			showError(error);
 			event.preventDefault();
 		} else {
-			registerForm.submit();
+			const data = Array.from(new FormData(registerForm).entries(),
+					e => e.map(encodeURIComponent).join('=')).join('&');
+			ajax("/Auth/Register", data.toString(), function (json) {
+				const response = JSON.parse(json);
+				if (response.Error) {
+					showError(response.Error + "<br>");
+				}
+				else {
+					document.location = response.RedirectURL;
+				}
+			});
 		}
 	}
 
